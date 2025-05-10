@@ -11,11 +11,16 @@ function ConsiCheckButton({playerObj}) {
     function handleClick() {
         // add logic here to check if consi check is available
         const consiPlayer = MafiaGame.findPlayerByRole("Consigliere");
-        if (consiPlayer.isAlive && consiPlayer.canPerformAction) {
-            displayRoleCheckOverlay("Consigliere", playerObj);
+        if (consiPlayer.isAlive) {
+            if (!MafiaGame.consiHasChecked) {
+                displayRoleCheckOverlay("Consigliere", playerObj);
+            }
+            else {
+                toast.error("The Consigliere has already used their 1 check this game!")
+            }
         }
         else {
-            toast.error("The Consigliere either used their 1 check or is dead.  Proceed to Mafia.")
+            toast.error("The Consigliere is dead, no actions can be performed.")
         }
     }
 

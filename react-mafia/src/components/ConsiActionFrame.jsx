@@ -8,7 +8,7 @@ function ConsiActionFrame() {
     function getConsiInstructionText() {
         const consiPlayer = MafiaGame.findPlayerByRole("Consigliere");
         if (consiPlayer.isAlive) {
-            if (consiPlayer.canPerformAction) {
+            if (!MafiaGame.consiHasChecked) {
                 return "Select the player in which the Consigliere wishes to check.";
             }
             else {

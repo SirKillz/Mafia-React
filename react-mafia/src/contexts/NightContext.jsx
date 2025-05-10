@@ -35,6 +35,9 @@ export function NightProvider({children}) {
     const [roleCheckOverlayClass, setRoleCheckOverlayClass] = useState("hidden");
     const [roleCheckResultClass, setRoleCheckResultClass] = useState("hidden");
     const [roleCheckResultText, setRoleCheckResultText] = useState("");
+    
+    // Consi Specific Context:
+    const [consiHasChecked, setConsiHasChecked] = useState(false); //updated in displayRoleOverlay
 
     // Mafia Role Context
     const [killedPlayers, setKilledPlayers] = useState([]);
@@ -92,6 +95,7 @@ export function NightProvider({children}) {
         setRoleCheckOverlayClass("role-check-show");
 
         if (actingRole === "Consigliere") {
+            setConsiHasChecked(true);
             switch(playerObj.isSpecialInnocent) {
                 case true:
                     setRoleCheckResultClass("consi-special-innocent");
