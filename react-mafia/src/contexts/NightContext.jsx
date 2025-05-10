@@ -32,7 +32,22 @@ export function NightProvider({children}) {
     }
 
     function removeKilledPlayer(playerObj) {
-        setKilledPlayers(killedPlayers.filter(player => player.id !== playerObj.id))
+        setKilledPlayers(prevKilledPlayers => {
+
+            // looks at the current killedPlayers array and attempts to find the first index where the player id matches
+            const index = prevKilledPlayers.findIndex(player => player.id === playerObj.id);
+            
+            // if no index is found, simply return the existing array, this should never happen
+            // findIndex returns -1 when no index is found matching the callback
+            if (index < 0) return prevKilledPlayers;
+
+            // if an index is found, create a new array spreading the old array in
+            // splice out starting from the found index position
+            // return the new array
+            const newKilledPlayers = [...prevKilledPlayers];
+            newKilledPlayers.splice(index, 1);
+            return newKilledPlayers;
+        })
     }
 
     function updateActiveKillPower(direction) {
