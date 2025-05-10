@@ -13,6 +13,10 @@ class MafiaGame {
         // rules
         this.mafiaKillPower = 2;
 
+        // previously acted on players
+        this.previousMedicSave = null;
+        this.previousEnforcerBlock = null;
+
     }
 
     swapDebugArray() {
@@ -67,7 +71,12 @@ class MafiaGame {
 
     disablePlayerAction(playerId) {
         const player = this.findPlayerByID(playerId);
-        player.disablePlayerAction();
+        player.disableSpecialAction();
+    }
+
+    enablePlayerAction(playerId) {
+        const player = this.findPlayerByID(playerId);
+        player.enableSpecialAction();
     }
 
     calculateCounts() {
