@@ -14,6 +14,7 @@ function MafiaActionFrame() {
         <div className="mafia-action-frame">
             <h2>Mafia Actions:</h2>
             <h2>Kill Power Remaining: {activeKillPower}</h2>
+            <h3>Players to be killed:</h3>
             {killedPlayers.map(player => {
                 return (
                     <div className="killed-player-row" key={player.id}>

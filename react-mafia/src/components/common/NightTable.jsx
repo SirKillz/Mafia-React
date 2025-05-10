@@ -116,7 +116,9 @@ function NightTable() {
                             <tr key={player.id}>
                                 <td className={player.isAlive ? "alive": "dead"}>{player.name}</td>
                                 <td className={player.isAlive ? "alive": "dead"}>{player.role}</td>
-                                <td>{getButtonForActingRole(player, actingRole)}</td>
+                                <td>
+                                    {getButtonForActingRole(player, actingRole)}
+                                </td>
                             </tr>
                         )
                     })

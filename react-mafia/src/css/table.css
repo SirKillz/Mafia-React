@@ -22,3 +22,18 @@ td {
 caption {  
     padding: 10px;
 }
+
+td:has(> button) {
+    padding: 0;
+  }
+  
+  /* 2) Stretch the button to fill its td */
+  td:has(> button) > button {
+    display: block;       /* makes width/height do what you expect */
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;  /* include its own padding inside that size */
+  
+    /* if you want button‑specific padding, add it here: */
+    padding: 10px 20px;
+  }

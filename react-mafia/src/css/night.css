@@ -6,6 +6,7 @@
     height: 100%;
     background-color: var(--night);
     padding: 20px;
+    gap: 20px;
 }
 
 .night-main {

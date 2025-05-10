@@ -1,3 +1,4 @@
+import "../../../css/mafiaKillButton.css"
 
 import { toast } from 'react-toastify'
 
@@ -21,7 +22,7 @@ function MafiaKillButton({playerObj}) {
 
 
     return (
-        <button onClick={handleClick}>Mafia Kill</button>
+        <button className="mafia-kill-button" onClick={handleClick}>Mafia Kill</button>
     )
 }
 
