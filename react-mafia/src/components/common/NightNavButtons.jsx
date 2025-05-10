@@ -1,3 +1,5 @@
+import "../../css/night/nightNavButtons.css"
+
 import MafiaGame from "../../GameAPI/mafiaGame"
 
 import { useNightContext } from "../../contexts/NightContext"
@@ -7,13 +9,84 @@ function NightNavButtons()  {
 
     return (
         <div className="night-nav-buttons">
-            {MafiaGame.roleIsPresent("Consigliere") ? <button onClick={() => updateActingRole("Consigliere")}>Consigliere</button>: <></>}
-            {MafiaGame.roleIsPresent("Mafia") ? <button onClick={() => updateActingRole("Mafia")}>Mafia</button>: <></>}
-            {MafiaGame.roleIsPresent("Mafia Boss") ? <button onClick={() => updateActingRole("Mafia Boss")}>Mafia Boss</button>: <></>}
-            {MafiaGame.roleIsPresent("Enforcer") ? <button onClick={() => updateActingRole("Enforcer")}>Enforcer</button>: <></>}
-            {MafiaGame.roleIsPresent("Spy") ? <button onClick={() => updateActingRole("Spy")}>Spy</button>: <></>}
-            {MafiaGame.roleIsPresent("Medic") ? <button onClick={() => updateActingRole("Medic")}>Medic</button>: <></>}
-            {MafiaGame.roleIsPresent("Assassin") ? <button onClick={() => updateActingRole("Assassin")}>Assassin</button>: <></>}
+            {
+                MafiaGame.roleIsPresent("Consigliere") 
+                    ? 
+                        <button 
+                            className="night-nav-button" 
+                            onClick={() => updateActingRole("Consigliere")}
+                        >
+                            Consigliere
+                        </button>
+                    :   <></>
+            }
+
+            {
+                MafiaGame.roleIsPresent("Mafia") 
+                    ? 
+                        <button 
+                            className="night-nav-button mafia-nav-button" 
+                            onClick={() => updateActingRole("Mafia")}
+                        >
+                            Mafia
+                        </button>
+                    : <></>
+            }
+            {
+                MafiaGame.roleIsPresent("Mafia Boss") 
+                    ? 
+                        <button 
+                            className="night-nav-button mafia-boss-nav-button" 
+                            onClick={() => updateActingRole("Mafia Boss")}
+                        >
+                            Mafia Boss
+                        </button>
+                    : <></>
+            }
+
+            {
+                MafiaGame.roleIsPresent("Enforcer") 
+                    ? <button 
+                        className="night-nav-button enforcer-nav-button" 
+                        onClick={() => updateActingRole("Enforcer")}
+                    >
+                        Enforcer
+                    </button>
+                    : <></>
+            }
+
+            {
+                MafiaGame.roleIsPresent("Spy") 
+                    ? <button 
+                        className="night-nav-button spy-nav-button" 
+                        onClick={() => updateActingRole("Spy")}
+                    >
+                        Spy
+                    </button>
+                    : <></>
+            }
+
+            {
+                MafiaGame.roleIsPresent("Medic") 
+                    ? <button 
+                        className="night-nav-button medic-nav-button" 
+                        onClick={() => updateActingRole("Medic")}
+                    >
+                        Medic
+                    </button>
+                    : <></>
+            }
+            
+            {
+                MafiaGame.roleIsPresent("Assassin") 
+                    ? <button 
+                        className="night-nav-button assassin-nav-button" 
+                        onClick={() => updateActingRole("Assassin")}
+                    >
+                        Assassin
+                    </button>
+                    : <></>
+            }
         </div>
     )
 }

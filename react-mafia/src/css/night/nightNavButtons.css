@@ -1,0 +1,43 @@
+.night-nav-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.night-nav-button {
+    padding: 10px 20px;
+}
+
+.consigliere-nav-button {
+    background-color: var(--consigliere);
+    color: white;
+}
+
+.mafia-nav-button {
+    background-color: var(--mafia-red);
+    color: white;
+}
+
+.mafia-boss-nav-button {
+    background-color: var(--mafia-boss);
+    color: white;
+}
+
+.enforcer-nav-button {
+    background-color: var(--enforcer);
+    color: white;
+}
+
+.spy-nav-button {
+    background-color: var(--spy);
+    color: white;
+}
+
+.medic-nav-button {
+    background-color: var(--medic);
+    color: white;
+}
+
+.assassin-nav-button {
+    background-color: var(--assassin);
+    color: white;
+}

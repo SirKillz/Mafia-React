@@ -11,6 +11,12 @@
 
 :root {
   --mafia-red: #F21B3F;
+  --consigliere: #D84727;
+  --mafia-boss: #042A2B;
+  --enforcer: #A4243B;
+  --spy: #29BF12;
+  --medic: #FB6376;
+  --assassin: #FF9914;
   --daytime: #FDFCDC;
   --night: #3F3F37;
 }
