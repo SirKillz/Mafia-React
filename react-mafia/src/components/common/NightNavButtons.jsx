@@ -2,11 +2,11 @@ import MafiaGame from "../../GameAPI/mafiaGame"
 
 import { useNightContext } from "../../contexts/NightContext"
 
-function NightButtonActions()  {
+function NightNavButtons()  {
     const {updateActingRole} = useNightContext()
 
     return (
-        <div className="night-buttons">
+        <div className="night-nav-buttons">
             {MafiaGame.roleIsPresent("Consigliere") ? <button onClick={() => updateActingRole("Consigliere")}>Consigliere</button>: <></>}
             {MafiaGame.roleIsPresent("Mafia") ? <button onClick={() => updateActingRole("Mafia")}>Mafia</button>: <></>}
             {MafiaGame.roleIsPresent("Mafia Boss") ? <button onClick={() => updateActingRole("Mafia Boss")}>Mafia Boss</button>: <></>}
@@ -18,4 +18,4 @@ function NightButtonActions()  {
     )
 }
 
-export default NightButtonActions
+export default NightNavButtons

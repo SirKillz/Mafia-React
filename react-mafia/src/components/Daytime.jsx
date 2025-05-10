@@ -1,4 +1,4 @@
-import "../css/daytime.css"
+import "../css/day/daytime.css"
 
 import DayTable from "./common/DayTable"
 import DayPhaseButton from "./common/DayPhaseButton"

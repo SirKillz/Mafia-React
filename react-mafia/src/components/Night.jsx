@@ -1,7 +1,7 @@
-import "../css/night.css"
+import "../css/night/night.css"
 
 import NightTable from "./common/NightTable";
-import NightButtonActions from "./common/NightButtonActions";
+import NightNavButtons from "./common/NightNavButtons";
 import { useNightContext } from "../contexts/NightContext";
 
 import MafiaActionFrame from "./MafiaActionFrame";
@@ -19,7 +19,7 @@ function Night() {
     return (
         <div className="night">
             <h1 className="page-title">Night</h1>
-            <NightButtonActions />
+            <NightNavButtons />
             <div className="night-main">
                 <NightTable />
                 <div className="night-frame">

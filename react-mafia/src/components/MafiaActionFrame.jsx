@@ -1,4 +1,4 @@
-import "../css/mafiaActionFrame.css"
+import "../css/night/mafiaActionFrame.css"
 
 import { useNightContext } from "../contexts/NightContext"
 
