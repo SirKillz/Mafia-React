@@ -19,7 +19,10 @@ const NightContext = createContext({
     resetRoleCheckOverlay: () => {},
     enforcedPlayers: null,
     updateEnforcedPlayers: () => {},
-    removeEnforcedPlayer: () => {}
+    removeEnforcedPlayer: () => {},
+    savedPlayers: null,
+    updateSavedPlayers: () => {},
+    removeSavedPlayer: () => {}
 })
 
 export function NightProvider({children}) {
@@ -39,6 +42,9 @@ export function NightProvider({children}) {
 
     // Enforcer Role Context
     const [enforcedPlayers, setEnforcedPlayers] = useState([]);
+
+    // Medic Role context
+    const [savedPlayers, setSavedPlayers] = useState([]);
 
     function updateActingRole(roleName) {
         setActingRole(roleName);
@@ -131,6 +137,17 @@ export function NightProvider({children}) {
         setEnforcedPlayers(enforcedPlayers.filter(player => player.id !== playerObj.id));
     }
 
+    function updateSavedPlayers(playerObj) {
+        setSavedPlayers(prevSavedPlayers => [
+            ...prevSavedPlayers,
+            playerObj
+        ])
+    }
+
+    function removeSavedPlayer(playerObj) {
+        setSavedPlayers(savedPlayers.filter(player => player.id !== playerObj.id));
+    }
+
     return (
         <NightContext.Provider value={
             { 
@@ -150,7 +167,10 @@ export function NightProvider({children}) {
                 resetRoleCheckOverlay,
                 enforcedPlayers,
                 updateEnforcedPlayers,
-                removeEnforcedPlayer
+                removeEnforcedPlayer,
+                savedPlayers,
+                updateSavedPlayers,
+                removeSavedPlayer
             }
         }>
             {children}

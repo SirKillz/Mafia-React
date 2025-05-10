@@ -1,0 +1,21 @@
+.medic-action-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--medic);
+    padding: 20px;
+    border-radius: 10px;
+    gap: 20px;
+}
+
+.saved-player-row {
+    display: flex;
+    gap: 10px;
+    border: 1px solid white;
+    padding: 5px;
+    width: 100%;
+}
+
+.remove-save-button {
+    margin-left: auto;
+}
