@@ -8,6 +8,7 @@ import ConsiActionFrame from "./ConsiActionFrame";
 import MafiaActionFrame from "./MafiaActionFrame";
 import SpyActionFrame from "./SpyActionFrame";
 import RoleCheck from "./common/RoleCheck";
+import EnforcerActionFrame from "./EnforcerActionFrame";
 
 function Night() {
     const {nightFrame, actionFrameClass} = useNightContext();
@@ -19,6 +20,9 @@ function Night() {
 
             case "Mafia":
                 return <MafiaActionFrame />
+            
+            case "Enforcer":
+                return <EnforcerActionFrame />
 
             case "Spy":
                 return <SpyActionFrame />

@@ -16,7 +16,10 @@ const NightContext = createContext({
     roleCheckResultClass: null,
     roleCheckResultText: null,
     displayRoleCheckOverlay: () => {},
-    resetRoleCheckOverlay: () => {}
+    resetRoleCheckOverlay: () => {},
+    enforcedPlayers: null,
+    updateEnforcedPlayers: () => {},
+    removeEnforcedPlayer: () => {}
 })
 
 export function NightProvider({children}) {
@@ -33,6 +36,9 @@ export function NightProvider({children}) {
     // Mafia Role Context
     const [killedPlayers, setKilledPlayers] = useState([]);
     const [activeKillPower, setActiveKillPower] = useState(MafiaGame.mafiaKillPower);
+
+    // Enforcer Role Context
+    const [enforcedPlayers, setEnforcedPlayers] = useState([]);
 
     function updateActingRole(roleName) {
         setActingRole(roleName);
@@ -111,6 +117,20 @@ export function NightProvider({children}) {
         setRoleCheckResultText("");
     }
 
+    function updateEnforcedPlayers(playerObj) {
+        setEnforcedPlayers(prevEnforcedPlayers => 
+            [
+                ...prevEnforcedPlayers,
+                playerObj
+            ]
+        )
+
+    }
+
+    function removeEnforcedPlayer(playerObj) {
+        setEnforcedPlayers(enforcedPlayers.filter(player => player.id !== playerObj.id));
+    }
+
     return (
         <NightContext.Provider value={
             { 
@@ -127,7 +147,10 @@ export function NightProvider({children}) {
                 roleCheckResultClass,
                 roleCheckResultText,
                 displayRoleCheckOverlay,
-                resetRoleCheckOverlay
+                resetRoleCheckOverlay,
+                enforcedPlayers,
+                updateEnforcedPlayers,
+                removeEnforcedPlayer
             }
         }>
             {children}
