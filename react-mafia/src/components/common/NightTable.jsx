@@ -46,7 +46,7 @@ function NightTable() {
         }
 
         if (buttonInfo.name === "Consigliere") {
-            if (playerObj.isMafia) {
+            if (playerObj.isMafia || !playerObj.isAlive) {
                 return <></>;
             }
             else {
@@ -54,7 +54,7 @@ function NightTable() {
             }
         }
         else if (buttonInfo.name === "Mafia") {
-            if (playerObj.isMafia) {
+            if (playerObj.isMafia || !playerObj.isAlive) {
                 return <></>
             }
             else {
@@ -63,11 +63,16 @@ function NightTable() {
         }
 
         else if (buttonInfo.name === "Mafia Boss") {
-            return buttonInfo.element;
+            if (!playerObj.isAlive) {
+                return <></>
+            }
+            else {
+              return buttonInfo.element;  
+            }
         }
 
         else if (buttonInfo.name === "Enforcer") {
-            if (playerObj.isMafia) {
+            if (playerObj.isMafia || !playerObj.isAlive) {
                 return <></>
             }
             else {
@@ -76,7 +81,7 @@ function NightTable() {
         }
 
         else if (buttonInfo.name === "Spy") {
-            if (playerObj.role === "Spy") {
+            if (playerObj.role === "Spy" || !playerObj.isAlive) {
                 return <></>
             }
             else {
@@ -85,11 +90,16 @@ function NightTable() {
         }
 
         else if (buttonInfo.name === "Medic") {
-            return buttonInfo.element;
+            if (!playerObj.isAlive) {
+                return <></>
+            }
+            else {
+               return buttonInfo.element; 
+            }
         }
 
         else if (buttonInfo.name === "Assassin") {
-            if (playerObj.role === "Assassin") {
+            if (playerObj.role === "Assassin" || !playerObj.isAlive) {
                 return <></>
             }
             else {
