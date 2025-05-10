@@ -1,0 +1,21 @@
+.welcome {
+    background-color: blue;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../../public/mafia-background.png");
+    background-size: cover;
+}
+
+.enjoy-button{
+    font-size: 5em;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    background-color: var(--mafia-red);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
