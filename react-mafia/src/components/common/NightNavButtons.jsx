@@ -13,7 +13,7 @@ function NightNavButtons()  {
                 MafiaGame.roleIsPresent("Consigliere") 
                     ? 
                         <button 
-                            className="night-nav-button" 
+                            className="night-nav-button consigliere-nav-button" 
                             onClick={() => updateActingRole("Consigliere")}
                         >
                             Consigliere
@@ -22,15 +22,12 @@ function NightNavButtons()  {
             }
 
             {
-                MafiaGame.roleIsPresent("Mafia") 
-                    ? 
-                        <button 
-                            className="night-nav-button mafia-nav-button" 
-                            onClick={() => updateActingRole("Mafia")}
-                        >
-                            Mafia
-                        </button>
-                    : <></>
+                <button 
+                    className="night-nav-button mafia-nav-button" 
+                    onClick={() => updateActingRole("Mafia")}
+                >
+                    Mafia
+                </button>
             }
             {
                 MafiaGame.roleIsPresent("Mafia Boss") 
