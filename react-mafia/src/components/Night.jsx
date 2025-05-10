@@ -6,6 +6,7 @@ import { useNightContext } from "../contexts/NightContext";
 
 import ConsiActionFrame from "./ConsiActionFrame";
 import MafiaActionFrame from "./MafiaActionFrame";
+import SpyActionFrame from "./SpyActionFrame";
 import RoleCheck from "./common/RoleCheck";
 
 function Night() {
@@ -18,6 +19,9 @@ function Night() {
 
             case "Mafia":
                 return <MafiaActionFrame />
+
+            case "Spy":
+                return <SpyActionFrame />
         }
     }
 

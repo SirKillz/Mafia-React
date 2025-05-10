@@ -5,6 +5,7 @@ import { useNightContext } from "../../contexts/NightContext"
 
 import MafiaKillButton from "./nightActions/MafiaButton";
 import ConsiCheckButton from "./nightActions/ConsiCheckButton";
+import SpyCheckButton from "./nightActions/SpyCheckButton";
 
 function NightTable() {
     const { actingRole } = useNightContext();
@@ -31,7 +32,7 @@ function NightTable() {
                 buttonInfo.element = <button>Enforce</button>;
                 break
             case "Spy":
-                buttonInfo.element = <button>Spy Check</button>;
+                buttonInfo.element = <SpyCheckButton playerObj={playerObj}/>;
                 break
             case "Medic":
                 buttonInfo.element = <button>Medic</button>;
