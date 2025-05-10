@@ -16,6 +16,8 @@ class MafiaGame {
         // previously acted on players
         this.previousMedicSave = null;
         this.previousEnforcerBlock = null;
+        this.consiHasChecked = false;
+        this.assassinHasShot = false;
 
     }
 
