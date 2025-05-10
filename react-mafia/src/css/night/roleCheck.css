@@ -1,0 +1,56 @@
+.role-check-show {
+    position: fixed;     /* Keeps it positioned relative to the viewport */
+    top: 0;
+    left: 0;
+    width: 100vw;        /* Full viewport width */
+    height: 100vh;       /* Full viewport height */
+    background: rgba(0, 0, 0, 0.5);  /* Optional: semi-transparent black */
+    z-index: 9999;       /* High z-index to ensure it's on top */
+    pointer-events: auto; /* Ensures it can receive clicks if needed */
+  }
+
+  .spy-innocent {
+    background-color: lightblue;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .spy-mafia {
+    background-color: var(--mafia-red);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .consi-regular-innocent {
+    background-color: lightblue;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .consi-special-innocent {
+    background-color: var(--mafia-red);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .role-check-result {
+    font-size: 8em;
+    font-weight: bold;
+    flex-direction: column;
+  }

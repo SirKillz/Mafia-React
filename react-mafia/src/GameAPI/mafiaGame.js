@@ -130,6 +130,11 @@ class MafiaGame {
         playerArray.forEach(player => player.killPlayer());
     }
 
+    disablePlayerAction(playerId) {
+        const player = this.findPlayerByID(playerId);
+        player.disablePlayerAction();
+    }
+
     calculateCounts() {
         this.aliveCount = 0;
         this.innocentCount = 0;

@@ -5,6 +5,7 @@ import NightNavButtons from "./common/NightNavButtons";
 import { useNightContext } from "../contexts/NightContext";
 
 import MafiaActionFrame from "./MafiaActionFrame";
+import RoleCheck from "./common/RoleCheck";
 
 function Night() {
     const {nightFrame, actionFrameClass} = useNightContext();
@@ -17,16 +18,19 @@ function Night() {
     }
 
     return (
-        <div className="night">
-            <h1 className="page-title">Night</h1>
-            <NightNavButtons />
-            <div className="night-main">
-                <div className={actionFrameClass}>
-                    {renderNightFrame()}
+        <>
+            <RoleCheck/>
+            <div className="night">
+                <h1 className="page-title">Night</h1>
+                <NightNavButtons />
+                <div className="night-main">
+                    <div className={actionFrameClass}>
+                        {renderNightFrame()}
+                    </div>
+                    <NightTable />
                 </div>
-                <NightTable />
             </div>
-        </div>
+        </>
     )
 }
 

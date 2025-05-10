@@ -11,14 +11,27 @@ const NightContext = createContext({
     updateKilledPlayers: () => {},
     removeKilledPlayer: () => {},
     activeKillPower: null,
-    updateActiveKillPower: () => {}
+    updateActiveKillPower: () => {},
+    roleCheckOverlayClass: null,
+    roleCheckResultClass: null,
+    roleCheckResultText: null,
+    displayRoleCheckOverlay: () => {},
+    resetRoleCheckOverlay: () => {}
 })
 
 export function NightProvider({children}) {
+    // GENERAL NIGHT: 
     const [actingRole, setActingRole] = useState("");
-    const [killedPlayers, setKilledPlayers] = useState([]);
     const [nightFrame, setNightFrame] = useState("");
     const [actionFrameClass, setActionFrameClass] = useState("hidden");
+
+    // Consi and Spy Role Context:
+    const [roleCheckOverlayClass, setRoleCheckOverlayClass] = useState("hidden");
+    const [roleCheckResultClass, setRoleCheckResultClass] = useState("hidden");
+    const [roleCheckResultText, setRoleCheckResultText] = useState("");
+
+    // Mafia Role Context
+    const [killedPlayers, setKilledPlayers] = useState([]);
     const [activeKillPower, setActiveKillPower] = useState(MafiaGame.mafiaKillPower);
 
     function updateActingRole(roleName) {
@@ -62,6 +75,42 @@ export function NightProvider({children}) {
         }
     }
 
+    // function used for displaying the result of spy and consi checks
+    function displayRoleCheckOverlay(actingRole, playerObj) {
+        setRoleCheckOverlayClass("role-check-show");
+
+        if (actingRole === "Consigliere") {
+            switch(playerObj.isSpecialInnocent) {
+                case true:
+                    setRoleCheckResultClass("consi-special-innocent");
+                    setRoleCheckResultText("SPECIAL INNOCENT");
+                    break
+                case false:
+                    setRoleCheckResultClass("consi-regular-innocent");
+                    setRoleCheckResultText("REGULAR INNOCENT");
+                    break
+            }
+        }
+        else if (actingRole === "Spy") {
+            switch(playerObj.isMafia) {
+                case true:
+                    setRoleCheckResultClass("spy-mafia");
+                    setRoleCheckResultText("MAFIA");
+                    break
+                case false:
+                    setRoleCheckResultClass("spy-innocent");
+                    setRoleCheckResultText("INNOCENT");
+                    break
+            }
+        }
+    }
+
+    function resetRoleCheckOverlay() {
+        setRoleCheckOverlayClass("hidden");
+        setRoleCheckResultClass("hidden");
+        setRoleCheckResultText("");
+    }
+
     return (
         <NightContext.Provider value={
             { 
@@ -73,8 +122,12 @@ export function NightProvider({children}) {
                 updateKilledPlayers, 
                 removeKilledPlayer,
                 activeKillPower,
-                updateActiveKillPower 
-
+                updateActiveKillPower,
+                roleCheckOverlayClass,
+                roleCheckResultClass,
+                roleCheckResultText,
+                displayRoleCheckOverlay,
+                resetRoleCheckOverlay
             }
         }>
             {children}

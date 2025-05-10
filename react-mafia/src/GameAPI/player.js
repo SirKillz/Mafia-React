@@ -11,6 +11,7 @@ class Player {
         // defaults
         this.role = "Innocent";
         this.isAlive = true;
+        this.canPerformAction = true;
 
         this.isInnocent = true;
         this.isMafia = false;
@@ -50,6 +51,14 @@ class Player {
 
     killPlayer() {
         this.isAlive = false;
+    }
+
+    enableSpecialAction() {
+        this.canPerformAction = true;
+    }
+
+    disableSpecialAction() {
+        this.canPerformAction = false;
     }
 }
 

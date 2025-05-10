@@ -4,6 +4,7 @@ import MafiaGame from "../../GameAPI/mafiaGame"
 import { useNightContext } from "../../contexts/NightContext"
 
 import MafiaKillButton from "./nightActions/MafiaButton";
+import ConsiCheckButton from "./nightActions/ConsiCheckButton";
 
 function NightTable() {
     const { actingRole } = useNightContext();
@@ -18,7 +19,7 @@ function NightTable() {
         // actingRole is the Role that currently has their head up during he night
         switch(actingRole) {
             case "Consigliere":
-                buttonInfo.element = <button>Consi Check</button>;
+                buttonInfo.element = <ConsiCheckButton playerObj={playerObj}/>;
                 break
             case "Mafia":
                 buttonInfo.element = <MafiaKillButton playerObj={playerObj}/>;
