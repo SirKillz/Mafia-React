@@ -3,37 +3,37 @@ import Player from "./player";
 const debugArray = [
     {
         "name": "Nick",
-        "id": "17631be6-09de-48b3-b337-1e583508d41d",
-        "role": "Mafia",
+        "id": "2e24630a-ae25-4f58-98a4-2211d3db9caf",
+        "role": "Mafia Boss",
         "isAlive": true,
         "isInnocent": false,
         "isMafia": true,
         "isSpecialInnocent": false,
-        "isSpecialMafia": false
+        "isSpecialMafia": true
     },
     {
         "name": "Ryan",
-        "id": "2a70b88f-8b85-4d47-bcb4-dc45b3dce1f9",
-        "role": "Mafia",
+        "id": "077f68ca-e157-4c05-85c5-402faea7aaf2",
+        "role": "Consigliere",
         "isAlive": true,
         "isInnocent": false,
         "isMafia": true,
         "isSpecialInnocent": false,
-        "isSpecialMafia": false
+        "isSpecialMafia": true
+    },
+    {
+        "name": "Luke",
+        "id": "f065338b-707b-47ba-a679-df552b8a7105",
+        "role": "Enforcer",
+        "isAlive": true,
+        "isInnocent": false,
+        "isMafia": true,
+        "isSpecialInnocent": false,
+        "isSpecialMafia": true
     },
     {
         "name": "Connor",
-        "id": "79511275-0657-495e-8cdf-16a9106886d6",
-        "role": "Mafia",
-        "isAlive": true,
-        "isInnocent": false,
-        "isMafia": true,
-        "isSpecialInnocent": false,
-        "isSpecialMafia": false
-    },
-    {
-        "name": "Colin",
-        "id": "6fbabd1a-61cf-4c29-8132-43a8dbb17aa0",
+        "id": "d311a74a-3e03-446f-bb0f-c0c6e07263e5",
         "role": "Spy",
         "isAlive": true,
         "isInnocent": true,
@@ -42,8 +42,8 @@ const debugArray = [
         "isSpecialMafia": false
     },
     {
-        "name": "Cole",
-        "id": "cc277eed-374f-4b65-8420-00d77d5a6371",
+        "name": "Colin",
+        "id": "06886d84-a016-47c7-801e-c46234691bd4",
         "role": "Medic",
         "isAlive": true,
         "isInnocent": true,
@@ -52,8 +52,8 @@ const debugArray = [
         "isSpecialMafia": false
     },
     {
-        "name": "Mike",
-        "id": "3876cc02-49ab-4975-b17f-c67e131e547f",
+        "name": "Cole",
+        "id": "b30eff9c-caea-4217-a3b2-14fb2ac60d02",
         "role": "Assassin",
         "isAlive": true,
         "isInnocent": true,
@@ -62,8 +62,18 @@ const debugArray = [
         "isSpecialMafia": false
     },
     {
+        "name": "Mike",
+        "id": "b3306e46-2d4e-4e88-b452-0fb0816aa437",
+        "role": "Innocent",
+        "isAlive": true,
+        "isInnocent": true,
+        "isMafia": false,
+        "isSpecialInnocent": false,
+        "isSpecialMafia": false
+    },
+    {
         "name": "Matt",
-        "id": "d30b9049-c79e-4164-b147-28174b97af96",
+        "id": "389d9c40-e007-40fb-86c2-fc2012cd43a8",
         "role": "Innocent",
         "isAlive": true,
         "isInnocent": true,
@@ -73,17 +83,7 @@ const debugArray = [
     },
     {
         "name": "Curt",
-        "id": "54b58c4c-4820-4aff-a498-c3720e3a4a76",
-        "role": "Innocent",
-        "isAlive": true,
-        "isInnocent": true,
-        "isMafia": false,
-        "isSpecialInnocent": false,
-        "isSpecialMafia": false
-    },
-    {
-        "name": "Luke",
-        "id": "01b6ae62-a79a-4adc-b692-0e070e04b532",
+        "id": "2c8b098e-3032-4a19-913c-79bbeaa44b96",
         "role": "Innocent",
         "isAlive": true,
         "isInnocent": true,
