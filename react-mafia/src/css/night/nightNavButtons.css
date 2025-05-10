@@ -41,3 +41,10 @@
     background-color: var(--assassin);
     color: white;
 }
+
+@media (max-width: 1024px) {
+    .night-nav-buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
