@@ -1,4 +1,4 @@
-import "../../../css/night/mafiaKillButton.css"
+import "../../../css/night/consiCheckButton.css"
 
 import { toast } from 'react-toastify'
 
@@ -10,8 +10,13 @@ function ConsiCheckButton({playerObj}) {
 
     function handleClick() {
         // add logic here to check if consi check is available
-
-        displayRoleCheckOverlay("Consigliere", playerObj);
+        const consiPlayer = MafiaGame.findPlayerByRole("Consigliere");
+        if (consiPlayer.isAlive && consiPlayer.canPerformAction) {
+            displayRoleCheckOverlay("Consigliere", playerObj);
+        }
+        else {
+            toast.error("The Consigliere either used their 1 check or is dead.  Proceed to Mafia.")
+        }
     }
 
 

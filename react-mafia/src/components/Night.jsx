@@ -4,6 +4,7 @@ import NightTable from "./common/NightTable";
 import NightNavButtons from "./common/NightNavButtons";
 import { useNightContext } from "../contexts/NightContext";
 
+import ConsiActionFrame from "./ConsiActionFrame";
 import MafiaActionFrame from "./MafiaActionFrame";
 import RoleCheck from "./common/RoleCheck";
 
@@ -12,6 +13,9 @@ function Night() {
 
     function renderNightFrame() {
         switch(nightFrame) {
+            case "Consigliere":
+                return <ConsiActionFrame />
+
             case "Mafia":
                 return <MafiaActionFrame />
         }

@@ -3,9 +3,10 @@ import Player from "./player";
 const debugArray = [
     {
         "name": "Nick",
-        "id": "2e24630a-ae25-4f58-98a4-2211d3db9caf",
+        "id": "5f678a4d-e29d-4047-9d79-1992ba6f1ae1",
         "role": "Mafia Boss",
         "isAlive": true,
+        "canPerformAction": true,
         "isInnocent": false,
         "isMafia": true,
         "isSpecialInnocent": false,
@@ -13,9 +14,10 @@ const debugArray = [
     },
     {
         "name": "Ryan",
-        "id": "077f68ca-e157-4c05-85c5-402faea7aaf2",
+        "id": "f2a86403-3094-491e-b0ac-91e0ca6fa0da",
         "role": "Consigliere",
         "isAlive": true,
+        "canPerformAction": true,
         "isInnocent": false,
         "isMafia": true,
         "isSpecialInnocent": false,
@@ -23,9 +25,10 @@ const debugArray = [
     },
     {
         "name": "Luke",
-        "id": "f065338b-707b-47ba-a679-df552b8a7105",
+        "id": "63e7e6b4-5135-4cff-9529-2256612cffe8",
         "role": "Enforcer",
         "isAlive": true,
+        "canPerformAction": true,
         "isInnocent": false,
         "isMafia": true,
         "isSpecialInnocent": false,
@@ -33,9 +36,10 @@ const debugArray = [
     },
     {
         "name": "Connor",
-        "id": "d311a74a-3e03-446f-bb0f-c0c6e07263e5",
+        "id": "f87bca32-b5f9-4d81-8908-ebce38fec493",
         "role": "Spy",
         "isAlive": true,
+        "canPerformAction": true,
         "isInnocent": true,
         "isMafia": false,
         "isSpecialInnocent": true,
@@ -43,9 +47,10 @@ const debugArray = [
     },
     {
         "name": "Colin",
-        "id": "06886d84-a016-47c7-801e-c46234691bd4",
+        "id": "8f7598cc-6fba-4999-9b53-da8afe9e50b4",
         "role": "Medic",
         "isAlive": true,
+        "canPerformAction": true,
         "isInnocent": true,
         "isMafia": false,
         "isSpecialInnocent": true,
@@ -53,9 +58,10 @@ const debugArray = [
     },
     {
         "name": "Cole",
-        "id": "b30eff9c-caea-4217-a3b2-14fb2ac60d02",
+        "id": "a53a106d-162d-4350-8684-edac939b49e8",
         "role": "Assassin",
         "isAlive": true,
+        "canPerformAction": true,
         "isInnocent": true,
         "isMafia": false,
         "isSpecialInnocent": true,
@@ -63,9 +69,10 @@ const debugArray = [
     },
     {
         "name": "Mike",
-        "id": "b3306e46-2d4e-4e88-b452-0fb0816aa437",
+        "id": "9e165a37-82e6-4f85-a892-23a434b95678",
         "role": "Innocent",
         "isAlive": true,
+        "canPerformAction": true,
         "isInnocent": true,
         "isMafia": false,
         "isSpecialInnocent": false,
@@ -73,9 +80,10 @@ const debugArray = [
     },
     {
         "name": "Matt",
-        "id": "389d9c40-e007-40fb-86c2-fc2012cd43a8",
+        "id": "b3112e6c-f313-4f13-ada5-c93ac9df67b4",
         "role": "Innocent",
         "isAlive": true,
+        "canPerformAction": true,
         "isInnocent": true,
         "isMafia": false,
         "isSpecialInnocent": false,
@@ -83,9 +91,10 @@ const debugArray = [
     },
     {
         "name": "Curt",
-        "id": "2c8b098e-3032-4a19-913c-79bbeaa44b96",
+        "id": "aabfad7b-273c-4e32-96c7-49f130d75ae2",
         "role": "Innocent",
         "isAlive": true,
+        "canPerformAction": true,
         "isInnocent": true,
         "isMafia": false,
         "isSpecialInnocent": false,
@@ -120,6 +129,10 @@ class MafiaGame {
 
     findPlayerByID(playerId) {
         return this.players.find(player => player.id === playerId);
+    }
+
+    findPlayerByRole(playerRole) {
+        return this.players.find(player => player.role === playerRole);
     }
 
     roleIsPresent(role) {
