@@ -4,8 +4,9 @@ import MafiaGame from "../GameAPI/mafiaGame";
 
 const NightContext = createContext({
     actingRole: null,
+    nightFrame: null,
+    actionFrameClass: null,
     updateActingRole: () => {},
-    nightFrame: () => {},
     killedPlayers: null,
     updateKilledPlayers: () => {},
     removeKilledPlayer: () => {},
@@ -17,11 +18,13 @@ export function NightProvider({children}) {
     const [actingRole, setActingRole] = useState("");
     const [killedPlayers, setKilledPlayers] = useState([]);
     const [nightFrame, setNightFrame] = useState("");
+    const [actionFrameClass, setActionFrameClass] = useState("hidden");
     const [activeKillPower, setActiveKillPower] = useState(MafiaGame.mafiaKillPower);
 
     function updateActingRole(roleName) {
         setActingRole(roleName);
-        setNightFrame(roleName)
+        setNightFrame(roleName);
+        setActionFrameClass("action-frame");
     }
 
     function updateKilledPlayers(playerObj) {
@@ -63,8 +66,9 @@ export function NightProvider({children}) {
         <NightContext.Provider value={
             { 
                 actingRole, 
-                updateActingRole, 
                 nightFrame, 
+                actionFrameClass,
+                updateActingRole, 
                 killedPlayers, 
                 updateKilledPlayers, 
                 removeKilledPlayer,

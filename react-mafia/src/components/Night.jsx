@@ -7,7 +7,7 @@ import { useNightContext } from "../contexts/NightContext";
 import MafiaActionFrame from "./MafiaActionFrame";
 
 function Night() {
-    const {nightFrame} = useNightContext();
+    const {nightFrame, actionFrameClass} = useNightContext();
 
     function renderNightFrame() {
         switch(nightFrame) {
@@ -22,7 +22,7 @@ function Night() {
             <NightNavButtons />
             <div className="night-main">
                 <NightTable />
-                <div className="night-frame">
+                <div className={actionFrameClass}>
                     {renderNightFrame()}
                 </div>
             </div>
