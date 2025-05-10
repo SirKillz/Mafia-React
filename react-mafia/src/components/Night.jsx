@@ -21,10 +21,10 @@ function Night() {
             <h1 className="page-title">Night</h1>
             <NightNavButtons />
             <div className="night-main">
-                <NightTable />
                 <div className={actionFrameClass}>
                     {renderNightFrame()}
                 </div>
+                <NightTable />
             </div>
         </div>
     )
