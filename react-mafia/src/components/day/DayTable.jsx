@@ -11,6 +11,7 @@ function DayTable() {
                     <th>Player Name</th>
                     <th>Player Role</th>
                     <th>Vote-Off Action</th>
+                    <th>Silenced?</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +22,13 @@ function DayTable() {
                                 <td className={player.isAlive ? "alive": "dead"}>{player.name}</td>
                                 <td className={player.isAlive ? "alive": "dead"}>{player.role}</td>
                                 <td>{player.isAlive ? <VoteOffButton playerObj={player}/>: <></>}</td>
+                                <td>
+                                    {
+                                        MafiaGame.lastNightRoutine.silencedPlayer !== null && MafiaGame.lastNightRoutine.silencedPlayer.id === player.id 
+                                        ? "Silenced"
+                                        : ""
+                                    }
+                                </td>
                             </tr>
                         )
                     })
