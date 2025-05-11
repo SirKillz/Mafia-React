@@ -6,10 +6,11 @@ import { useNightContext } from "../contexts/NightContext";
 
 import ConsiActionFrame from "./ConsiActionFrame";
 import MafiaActionFrame from "./MafiaActionFrame";
-import SpyActionFrame from "./SpyActionFrame";
 import RoleCheck from "./common/RoleCheck";
 import EnforcerActionFrame from "./EnforcerActionFrame";
+import SpyActionFrame from "./SpyActionFrame";
 import MedicActionFrame from "./MedicActionFrame";
+import AssassinActionFrame from "./AssassinActionFrame";
 
 function Night() {
     const {nightFrame, actionFrameClass} = useNightContext();
@@ -30,6 +31,9 @@ function Night() {
             
             case "Medic":
                 return <MedicActionFrame />
+            
+            case "Assassin":
+                return <AssassinActionFrame />
         }
     }
 

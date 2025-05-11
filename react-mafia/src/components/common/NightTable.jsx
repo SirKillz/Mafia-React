@@ -8,6 +8,7 @@ import MafiaKillButton from "./nightActions/MafiaButton";
 import EnforcerBlockButton from "./nightActions/EnforcerBlockButton";
 import SpyCheckButton from "./nightActions/SpyCheckButton";
 import MedicSaveButton from "./nightActions/MedicSaveButton";
+import AssassinKillButton from "./nightActions/assassinKillButton";
 
 function NightTable() {
     const { actingRole } = useNightContext();
@@ -40,7 +41,7 @@ function NightTable() {
                 buttonInfo.element = <MedicSaveButton playerObj={playerObj}/>;
                 break
             case "Assassin":
-                buttonInfo.element = <button>Assassin</button>;
+                buttonInfo.element = <AssassinKillButton playerObj={playerObj}/>
                 break
             default:
                 buttonInfo.element = <></>;

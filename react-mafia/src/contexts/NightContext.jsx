@@ -22,7 +22,11 @@ const NightContext = createContext({
     removeEnforcedPlayer: () => {},
     savedPlayers: null,
     updateSavedPlayers: () => {},
-    removeSavedPlayer: () => {}
+    removeSavedPlayer: () => {},
+    assassinatedPlayers: null,
+    updateAssassinatedPlayers: () => {},
+    removeAsssassinatedPlayer: () => {},
+    updateAssassinHasShot: () => {}
 })
 
 export function NightProvider({children}) {
@@ -37,7 +41,7 @@ export function NightProvider({children}) {
     const [roleCheckResultText, setRoleCheckResultText] = useState("");
     
     // Consi Specific Context:
-    const [consiHasChecked, setConsiHasChecked] = useState(false); //updated in displayRoleOverlay
+    const [consiHasChecked, setConsiHasChecked] = useState(MafiaGame.consiHasChecked); //updated in displayRoleOverlay
 
     // Mafia Role Context
     const [killedPlayers, setKilledPlayers] = useState([]);
@@ -48,6 +52,10 @@ export function NightProvider({children}) {
 
     // Medic Role context
     const [savedPlayers, setSavedPlayers] = useState([]);
+
+    // Assassin Role Context
+    const [assassinatedPlayers, setAssassinatedPlayers] = useState([]);
+    const [assassinHasShot, setAssassinHasShot] = useState(MafiaGame.assassinHasShot);
 
     function updateActingRole(roleName) {
         setActingRole(roleName);
@@ -152,6 +160,22 @@ export function NightProvider({children}) {
         setSavedPlayers(savedPlayers.filter(player => player.id !== playerObj.id));
     }
 
+    function updateAssassinatedPlayers(playerObj) {
+        setAssassinatedPlayers(prevAssassinatedPlayers => [
+            ...prevAssassinatedPlayers,
+            playerObj
+        ])
+    }
+
+    function removeAsssassinatedPlayer(playerObj) {
+        setAssassinatedPlayers(assassinatedPlayers.filter(player => player.id !== playerObj.id))
+    }
+
+    function updateAssassinHasShot(boolValue) {
+        if (boolValue) setAssassinHasShot(true);
+        else setAssassinHasShot(false);
+    }
+
     return (
         <NightContext.Provider value={
             { 
@@ -174,7 +198,11 @@ export function NightProvider({children}) {
                 removeEnforcedPlayer,
                 savedPlayers,
                 updateSavedPlayers,
-                removeSavedPlayer
+                removeSavedPlayer,
+                updateAssassinHasShot,
+                assassinatedPlayers,
+                updateAssassinatedPlayers,
+                removeAsssassinatedPlayer
             }
         }>
             {children}
