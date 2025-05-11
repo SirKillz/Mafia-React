@@ -73,7 +73,7 @@ class MafiaGame {
         return this.players.some(player => player.role === role);
     }
 
-    _killPlayers(playerArray) {
+    killPlayers(playerArray) {
         playerArray.forEach(player => player.killPlayer());
     }
 
@@ -132,7 +132,7 @@ class MafiaGame {
         }
 
         // kill the players
-        this._killPlayers(allKilledPlayers);
+        this.killPlayers(allKilledPlayers);
 
         // check for enforced players
         if (enforcedPlayers.length > 0) {
