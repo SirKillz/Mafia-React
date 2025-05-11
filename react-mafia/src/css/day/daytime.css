@@ -12,3 +12,9 @@
 .dead {
     text-decoration: line-through;
 }
+
+.night-button {
+    color: white;
+    padding: 10px 20px;
+    background-color: var(--night);
+}

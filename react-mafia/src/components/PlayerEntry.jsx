@@ -24,7 +24,7 @@ function PlayerEntry() {
     // 3) Update state in one batch:
     setPlayerCount(newCount);
     setPlayers(newPlayers);
-    setSubmitClass("");     // show the button
+    setSubmitClass("button-default");     // show the button
   };
 
   // Update one player’s name at index:
@@ -51,7 +51,6 @@ function PlayerEntry() {
     <div className="player-entry">
       <div className="count">
           <h1 className="page-title">Player Count:</h1>
-          <button>Debug</button>
           <input
             id="player-count"
             className="input-small"
@@ -77,7 +76,7 @@ function PlayerEntry() {
         ))}
 
 
-        <button type="submit" className={submitClass}>Submit</button>
+        <button type="submit" className={submitClass}>Role Entry</button>
       </form>
     </div>
   );

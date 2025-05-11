@@ -21,6 +21,7 @@
   --night: #3F3F37;
   --cop: #92898A;
   --innocent: #08BDBD;
+  --button-primary: #1F7A8C;
 }
 
 .hidden {
@@ -29,6 +30,13 @@
 
 .page-title {
   font-size: 4em;
+}
+
+.button-default {
+  padding: 10px 20px;
+  color: white;
+  background-color: var(--button-primary);
+
 }
 
 button:disabled {

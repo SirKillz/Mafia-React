@@ -22,7 +22,7 @@ function RoleEntry() {
                     return <PlayerRoleSelectGroup key={player.id} playerObj={player}/>
                 })}
             </div>
-            <button onClick={onClick}>Daytime</button>
+            <button onClick={onClick} className="daytime-button">Daytime</button>
         </div>
     )
 }

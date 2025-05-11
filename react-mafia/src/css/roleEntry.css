@@ -25,3 +25,8 @@
     text-align: center;
     margin-left: auto;
 }
+
+.daytime-button {
+    padding: 10px 20px;
+    background-color: var(--daytime);
+}
