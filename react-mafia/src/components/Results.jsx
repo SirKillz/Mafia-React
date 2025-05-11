@@ -36,14 +36,14 @@ function Results() {
                             return <li>{player.name}</li>
                         })
                         :
-                        "No deaths"
+                        "No Deaths"
                     }
                 </ul>
             </div>
             <div className="silenced">
                 <h2>Silenced Player:</h2>
                 <ul>
-                    <li>{MafiaGame.lastNightRoutine.silencedPlayer !== null ? MafiaGame.lastNightRoutine.silencedPlayer.name : "No Silences"}</li>
+                    {MafiaGame.lastNightRoutine.silencedPlayer !== null ? <li>MafiaGame.lastNightRoutine.silencedPlayer.name</li> : "No Silences"}
                 </ul>
             </div>
             <button onClick={handleClick} className="continue-button">CONTINUE</button>

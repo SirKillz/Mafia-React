@@ -6,6 +6,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    color: white;
+    background-color: var(--night);
 }
 
 .deaths {
@@ -14,14 +16,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 55%;
 }
 
 .silenced {
-    border: 1px solid var(--night);
+    border: 1px solid blue;
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 55%
 }
 
 .continue-button {
