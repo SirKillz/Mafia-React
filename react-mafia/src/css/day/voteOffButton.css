@@ -1,0 +1,7 @@
+.vote-off {
+    background-color: var(--assassin);
+}
+
+.undo {
+    background-color: var(--mafia-red);
+}

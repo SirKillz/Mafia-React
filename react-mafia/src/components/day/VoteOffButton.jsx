@@ -1,3 +1,5 @@
+import "../../css/day/voteOffButton.css"
+
 import { useState } from "react"
 import { toast } from "react-toastify";
 
@@ -29,7 +31,7 @@ function VoteOffButton({playerObj}) {
 
     return (
         <button 
-            className="vote-off"
+            className={buttonState === 0 ? "vote-off" : "undo"}
             onClick={handleClick}
         >
             {buttonText}
