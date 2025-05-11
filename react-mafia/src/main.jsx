@@ -9,5 +9,5 @@ createRoot(document.getElementById('root')).render(
     <NavProvider>
       <App />
     </NavProvider>
-  </StrictMode>,
+  </StrictMode>
 )

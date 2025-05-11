@@ -9,7 +9,8 @@ function WelcomePage() {
 
     function handleDebug() {
         MafiaGame.swapDebugArray();
-        updateView("nightTime");
+        updateView("daytime");
+        console.log(MafiaGame);
     }
 
     return (

@@ -8,8 +8,7 @@ function DayPhaseButton({text, className}) {
     const { votedPlayers } = useDayContext();
 
     function onClick() {
-        MafiaGame.killPlayers(votedPlayers);
-        MafiaGame.calculateCounts();
+        MafiaGame.performDayRoutine(votedPlayers);
         const gameResult = MafiaGame.checkGameOver();
         if (gameResult.isGameOver) {
             switch(gameResult.winningTeam) {

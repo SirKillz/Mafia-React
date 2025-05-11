@@ -2,9 +2,15 @@ import "../css/roleEntry.css"
 
 import MafiaGame from "../GameAPI/mafiaGame"
 import PlayerRoleSelectGroup from "./common/PlayerRoleSelectGroup"
-import NavButton from "./common/NavButton"
+import { useNav } from "../contexts/NavContext"
 
 function RoleEntry() {
+    const {updateView} = useNav();
+
+    function onClick() {
+        MafiaGame.updateInitialMafiaCount();
+        updateView("daytime");
+    }
 
     return (
         <div className="role-entry">
@@ -15,7 +21,7 @@ function RoleEntry() {
                     return <PlayerRoleSelectGroup key={player.id} playerObj={player}/>
                 })}
             </div>
-            <NavButton text="Daytime" className="button-default" nextPage="daytime"/>
+            <button onClick={onClick}>Daytime</button>
         </div>
     )
 }

@@ -5,7 +5,6 @@ function PlayerRoleSelectGroup({playerObj}) {
     function handleRoleChange(playerId, newRole) {
         const player = MafiaGame.findPlayerByID(playerId);
         player.updateRole(newRole);
-        console.log(MafiaGame.players);
     }
 
 

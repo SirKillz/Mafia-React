@@ -5,10 +5,12 @@ class MafiaGame {
         this.players = [];
 
         // status
-        this.gamePhase = "night";
         this.aliveCount = 0;
         this.innocentCount = 0;
         this.mafiaCount = 0;
+        this.startingMafiaCount = 0;
+        this.dayCount = 1;
+        this.nightCount = 1;
 
         // rules
         this.mafiaKillPower = 2;
@@ -53,12 +55,27 @@ class MafiaGame {
         })
 
         this.players = debugArray;
+        this.updateInitialMafiaCount();
     }
 
     createPlayerObjs(rawPlayerArray) {
         this.players = rawPlayerArray.map(playerName => {
             return new Player(playerName);
         })
+    }
+
+    updateInitialMafiaCount() {
+        this.players.forEach(player => {
+            if (player.isMafia) this.startingMafiaCount += 1;
+        })
+    }
+
+    updateMafiaKillPower() {
+        if (this.mafiaKillPower > 1) {
+            if (this.startingMafiaCount !== this.mafiaCount) {
+                this.mafiaKillPower--;
+            }
+        }
     }
 
     findPlayerByID(playerId) {
@@ -108,6 +125,12 @@ class MafiaGame {
                 this.mafiaCount++;
             }
         })
+    }
+
+    performDayRoutine(votedPlayers) {
+        this.killPlayers(votedPlayers);
+        this.calculateCounts();
+        this.updateMafiaKillPower();
     }
 
     performNightRoutine(
@@ -184,14 +207,6 @@ class MafiaGame {
             isGameOver: false,
             winningTeam: null
         }
-    }
-
-    getGamePhase() {
-        return this.gamePhase;
-    }
-
-    updateGamePhase(newPhase) {
-        this.gamePhase = newPhase;
     }
 }
 
