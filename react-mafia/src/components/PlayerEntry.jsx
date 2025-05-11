@@ -8,6 +8,7 @@ import { useNav } from "../contexts/NavContext";
 
 function PlayerEntry() {
   const [playerCount, setPlayerCount] = useState("");
+  const [killPower, setKillPower] = useState("");
   const [players, setPlayers]       = useState([]);
   const [submitClass, setSubmitClass] = useState("hidden");
   const { updateView } = useNav();
@@ -26,6 +27,12 @@ function PlayerEntry() {
     setPlayers(newPlayers);
     setSubmitClass("button-default");     // show the button
   };
+
+  const handleKillPowerChange = (e) => {
+    const newKillPower = parseInt(e.target.value, 10) || 0
+    setKillPower(newKillPower);
+    MafiaGame.mafiaKillPower = newKillPower;
+  }
 
   // Update one player’s name at index:
   function handleInputChange(index, newValue) {
@@ -51,14 +58,31 @@ function PlayerEntry() {
     <div className="player-entry">
       <div className="count">
           <h1 className="page-title">Player Count:</h1>
-          <input
-            id="player-count"
-            className="input-small"
-            type="number"
-            min="0"
-            value={playerCount}
-            onChange={handlePlayerCountChange}
-          />
+          <div>
+            <div className="input-row">
+              <label htmlFor="player-count">Enter the number of players:</label>
+              <input
+                id="player-count"
+                className="input-small"
+                type="number"
+                min="0"
+                placeholder="# of Players"
+                onChange={handlePlayerCountChange}
+              />
+            </div>
+            <div className="input-row">
+              <label htmlFor="kill-power">Enter the Mafia's Kill Power:</label>
+              <input
+                id="kill-power"
+                className="input-small"
+                type="number"
+                min="1"
+                max="2"
+                placeholder="Mafia Kill Power"
+                onChange={handleKillPowerChange}
+              />
+            </div>
+          </div>
       </div>
 
       <form className="player-inputs" onSubmit={handleFormSubmit}>

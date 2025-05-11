@@ -13,7 +13,7 @@ class MafiaGame {
         this.nightCount = 0;
 
         // rules
-        this.mafiaKillPower = 2;
+        this.mafiaKillPower = 1; //defaults to one kill power can be overwritten during player entry
 
         // previously acted on players
         this.previousMedicSave = null;
