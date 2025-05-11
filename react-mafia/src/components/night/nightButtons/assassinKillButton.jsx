@@ -1,4 +1,4 @@
-import "../../../css/night/assassinKillButton.css"
+import "../../../css/night/nightbuttons/assassinKillButton.css"
 
 import { toast } from 'react-toastify'
 

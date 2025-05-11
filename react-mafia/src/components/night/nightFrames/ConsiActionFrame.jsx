@@ -1,7 +1,7 @@
-import "../css/night/consiActionFrame.css"
+import "../../../css/night/actionFrames/consiActionFrame.css"
 
 
-import MafiaGame from "../GameAPI/mafiaGame"
+import MafiaGame from "../../../GameAPI/mafiaGame"
 
 function ConsiActionFrame() {
 

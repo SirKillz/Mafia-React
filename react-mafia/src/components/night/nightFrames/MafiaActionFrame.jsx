@@ -1,6 +1,6 @@
-import "../css/night/mafiaActionFrame.css"
+import "../../../css/night/actionFrames/mafiaActionFrame.css"
 
-import { useNightContext } from "../contexts/NightContext"
+import { useNightContext } from "../../../contexts/NightContext"
 
 function MafiaActionFrame() {
     const {killedPlayers, removeKilledPlayer, activeKillPower, updateActiveKillPower} = useNightContext();

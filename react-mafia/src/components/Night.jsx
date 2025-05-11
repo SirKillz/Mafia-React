@@ -1,19 +1,19 @@
 import "../css/night/night.css"
 
-import NightTable from "./common/NightTable";
-import NightNavButtons from "./common/NightNavButtons";
+import NightTable from "./night/NightTable";
+import NightNavButtons from "./night/NightNavButtons";
 import { useNightContext } from "../contexts/NightContext";
 import MafiaGame from "../GameAPI/mafiaGame";
 import { useNav } from "../contexts/NavContext";
 
-import ConsiActionFrame from "./ConsiActionFrame";
-import MafiaActionFrame from "./MafiaActionFrame";
+import ConsiActionFrame from "./night/nightFrames/ConsiActionFrame";
+import MafiaActionFrame from "./night/nightFrames/MafiaActionFrame";
 import RoleCheck from "./common/RoleCheck";
-import EnforcerActionFrame from "./EnforcerActionFrame";
-import BossActionFrame from "./BossActionFrame";
-import SpyActionFrame from "./SpyActionFrame";
-import MedicActionFrame from "./MedicActionFrame";
-import AssassinActionFrame from "./AssassinActionFrame";
+import EnforcerActionFrame from "./night/nightFrames/EnforcerActionFrame";
+import BossActionFrame from "./night/nightFrames/BossActionFrame";
+import SpyActionFrame from "./night/nightFrames/SpyActionFrame";
+import MedicActionFrame from "./night/nightFrames/MedicActionFrame";
+import AssassinActionFrame from "./night/nightFrames/AssassinActionFrame";
 
 function Night() {
     const {updateView} = useNav();

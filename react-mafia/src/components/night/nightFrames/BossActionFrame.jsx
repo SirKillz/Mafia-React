@@ -1,7 +1,7 @@
-import "../css/night/bossActionFrame.css"
+import "../../../css/night/actionFrames/bossActionFrame.css"
 
-import { useNightContext } from "../contexts/NightContext"
-import MafiaGame from "../GameAPI/mafiaGame";
+import { useNightContext } from "../../../contexts/NightContext"
+import MafiaGame from "../../../GameAPI/mafiaGame";
 
 function BossActionFrame() {
     const {silencedPlayers, removeSilencedPlayer} = useNightContext();

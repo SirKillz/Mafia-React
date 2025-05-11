@@ -3,13 +3,13 @@ import "../../css/table.css"
 import MafiaGame from "../../GameAPI/mafiaGame"
 import { useNightContext } from "../../contexts/NightContext"
 
-import ConsiCheckButton from "./nightActions/ConsiCheckButton";
-import MafiaKillButton from "./nightActions/MafiaButton";
-import EnforcerBlockButton from "./nightActions/EnforcerBlockButton";
-import BossSilenceButton from "./nightActions/BossSilenceButton";
-import SpyCheckButton from "./nightActions/SpyCheckButton";
-import MedicSaveButton from "./nightActions/MedicSaveButton";
-import AssassinKillButton from "./nightActions/assassinKillButton";
+import ConsiCheckButton from "./nightButtons/ConsiCheckButton";
+import MafiaKillButton from "./nightButtons/MafiaButton";
+import EnforcerBlockButton from "./nightButtons/EnforcerBlockButton";
+import BossSilenceButton from "./nightButtons/BossSilenceButton";
+import SpyCheckButton from "./nightButtons/SpyCheckButton";
+import MedicSaveButton from "./nightButtons/MedicSaveButton";
+import AssassinKillButton from "./nightButtons/assassinKillButton";
 
 function NightTable() {
     const { actingRole } = useNightContext();

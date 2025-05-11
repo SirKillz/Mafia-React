@@ -1,8 +1,8 @@
 import "../css/day/daytime.css"
 
 import MafiaGame from "../GameAPI/mafiaGame"
-import DayTable from "./common/DayTable"
-import DayPhaseButton from "./common/DayPhaseButton"
+import DayTable from "./day/DayTable"
+import DayPhaseButton from "./day/DayPhaseButton"
 
 function Daytime() {
     return (

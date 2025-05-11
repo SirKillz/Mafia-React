@@ -1,7 +1,7 @@
-import "../css/night/spyActionFrame.css"
+import "../../../css/night/actionFrames/spyActionFrame.css"
 
 
-import MafiaGame from "../GameAPI/mafiaGame"
+import MafiaGame from "../../../GameAPI/mafiaGame"
 
 function SpyActionFrame() {
 

@@ -1,7 +1,7 @@
-import "../css/night/assassinActionFrame.css"
+import "../../../css/night/actionFrames/assassinActionFrame.css"
 
-import { useNightContext } from "../contexts/NightContext"
-import MafiaGame from "../GameAPI/mafiaGame";
+import { useNightContext } from "../../../contexts/NightContext"
+import MafiaGame from "../../../GameAPI/mafiaGame";
 
 function AssassinActionFrame() {
     const {assassinatedPlayers, removeAsssassinatedPlayer} = useNightContext();

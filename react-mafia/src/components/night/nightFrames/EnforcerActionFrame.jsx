@@ -1,7 +1,7 @@
-import "../css/night/enforcerActionFrame.css"
+import "../../../css/night/actionFrames/enforcerActionFrame.css"
 
-import { useNightContext } from "../contexts/NightContext"
-import MafiaGame from "../GameAPI/mafiaGame";
+import { useNightContext } from "../../../contexts/NightContext"
+import MafiaGame from "../../../GameAPI/mafiaGame";
 
 function EnforcerActionFrame() {
     const {enforcedPlayers, removeEnforcedPlayer} = useNightContext();
