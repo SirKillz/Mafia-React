@@ -14,6 +14,11 @@
     gap: 20px;
 }
 
+.continue-button {
+    padding: 10px 20px;
+    background-color: var(--daytime);
+}
+
 @media (max-width: 1024px) {
     .night-main {
         display: flex;

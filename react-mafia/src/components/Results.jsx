@@ -1,3 +1,5 @@
+import "../css/results.css"
+
 import MafiaGame from "../GameAPI/mafiaGame"
 import { useNav } from "../contexts/NavContext"
 
@@ -24,17 +26,27 @@ function Results() {
     return (
         <div className="results">
             <h1 className="page-title">Night Results</h1>
-            <h2>Deaths:</h2>
-            <ul>
-                {MafiaGame.lastNightRoutine.deaths.map(player => {
-                    return <li>{player.name}</li>
-                })}
-            </ul>
-            <h2>Silenced Player:</h2>
-            <ul>
-                <li>{MafiaGame.lastNightRoutine.silencedPlayer ? MafiaGame.lastNightRoutine.silencedPlayer.name: ""}</li>
-            </ul>
-            <button onClick={handleClick}>CONTINUE</button>
+            <div className="deaths">
+                <h2>Deaths:</h2>
+                <ul>
+                    {
+                        MafiaGame.lastNightRoutine.deaths.length > 0 
+                        ?
+                        MafiaGame.lastNightRoutine.deaths.map(player => {
+                            return <li>{player.name}</li>
+                        })
+                        :
+                        "No deaths"
+                    }
+                </ul>
+            </div>
+            <div className="silenced">
+                <h2>Silenced Player:</h2>
+                <ul>
+                    <li>{MafiaGame.lastNightRoutine.silencedPlayer !== null ? MafiaGame.lastNightRoutine.silencedPlayer.name : "No Silences"}</li>
+                </ul>
+            </div>
+            <button onClick={handleClick} className="continue-button">CONTINUE</button>
         </div>
     )
 }
