@@ -1,13 +1,18 @@
 import { createContext, useContext, useState, } from "react";
 
+import MafiaGame from "../GameAPI/mafiaGame";
+
 const DayContext = createContext({
     votedPlayers: null,
     addVotedPlayer: () => {},
-    removeVotedPlayer: () => {}
+    removeVotedPlayer: () => {},
+    attorneyDefenseUsed: null,
+    updateAttoryneyDefenseUsed: () => {},
 })
 
 export function DayProvider({children}) {
     const [votedPlayers, setVotedPlayers] = useState([]);
+    const [attorneyDefenseUsed, setAttorneyDefenseUsed] = useState(MafiaGame.attorneyHasDefended); // defaults to false
 
     function addVotedPlayer(playerObj) {
         setVotedPlayers(
@@ -22,9 +27,28 @@ export function DayProvider({children}) {
         setVotedPlayers(votedPlayers.filter(player => player.id !== playerObj.id))
     }
 
+    function updateAttoryneyDefenseUsed(boolVal) {
+        if (boolVal) {
+            setAttorneyDefenseUsed(true);
+        }
+        else {
+            setAttorneyDefenseUsed(false);
+        }
+    }
+
+
+
 
     return (
-        <DayContext.Provider value={{ votedPlayers, addVotedPlayer, removeVotedPlayer }}>
+        <DayContext.Provider value={
+            { 
+                votedPlayers, 
+                addVotedPlayer, 
+                removeVotedPlayer, 
+                attorneyDefenseUsed, 
+                updateAttoryneyDefenseUsed, 
+            }
+        }>
             {children}
         </DayContext.Provider >
     )

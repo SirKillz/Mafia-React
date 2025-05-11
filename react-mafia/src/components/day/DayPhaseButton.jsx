@@ -5,10 +5,10 @@ import MafiaGame from "../../GameAPI/mafiaGame";
 
 function DayPhaseButton({text, className}) {
     const { updateView } = useNav();
-    const { votedPlayers } = useDayContext();
+    const { votedPlayers, attorneyDefenseUsed } = useDayContext();
 
     function onClick() {
-        MafiaGame.performDayRoutine(votedPlayers);
+        MafiaGame.performDayRoutine(votedPlayers, attorneyDefenseUsed);
         const gameResult = MafiaGame.checkGameOver();
         if (gameResult.isGameOver) {
             switch(gameResult.winningTeam) {

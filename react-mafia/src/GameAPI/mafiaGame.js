@@ -21,6 +21,7 @@ class MafiaGame {
         this.previousBossSilence = null;
         this.consiHasChecked = false;
         this.assassinHasShot = false;
+        this.attorneyHasDefended = false;
 
         this.lastNightRoutine = {
             deaths: [],
@@ -39,7 +40,7 @@ class MafiaGame {
             "Assassin",
             "Innocent",
             "Innocent",
-            "Undercover Cop"
+            "Attorney"
         ]
 
         const testNames = [
@@ -153,10 +154,13 @@ class MafiaGame {
         this.players.forEach(player => player.enableSpecialAction());
     }
 
-    performDayRoutine(votedPlayers) {
+    performDayRoutine(votedPlayers, attorneyDefenseUsed) {
         this.killPlayers(votedPlayers);
         this.calculateCounts();
         this.updateMafiaKillPower();
+
+        if (attorneyDefenseUsed) this.attorneyHasDefended = true;
+
         this.dayCount++;
     }
 
