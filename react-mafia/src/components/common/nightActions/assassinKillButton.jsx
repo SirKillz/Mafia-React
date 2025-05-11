@@ -10,7 +10,6 @@ function AssassinKillButton({playerObj}) {
 
     function handleClick() {
         const assassinPlayer = MafiaGame.findPlayerByRole("Assassin");
-        console.log(assassinPlayer);
         if (assassinPlayer.isAlive) {
             if (!MafiaGame.assassinHasShot && assassinatedPlayers.length === 0) {
                 if (assassinPlayer.canPerformAction) {

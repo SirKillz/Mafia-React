@@ -44,7 +44,6 @@ function PlayerEntry() {
     }
 
     MafiaGame.createPlayerObjs(players);
-    console.log(MafiaGame.players);
     updateView("roleEntry");
   }
 
