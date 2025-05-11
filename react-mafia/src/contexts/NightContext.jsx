@@ -29,7 +29,9 @@ const NightContext = createContext({
     updateAssassinHasShot: () => {},
     silencedPlayers: null,
     updateSilencedPlayers: () => {},
-    removeSilencedPlayer: () => {}
+    removeSilencedPlayer: () => {},
+    consiHasChecked: null,
+    assassinHasShot: null
 })
 
 export function NightProvider({children}) {
@@ -222,7 +224,9 @@ export function NightProvider({children}) {
                 removeAsssassinatedPlayer,
                 silencedPlayers,
                 updateSilencedPlayers,
-                removeSilencedPlayer
+                removeSilencedPlayer,
+                consiHasChecked,
+                assassinHasShot
             }
         }>
             {children}

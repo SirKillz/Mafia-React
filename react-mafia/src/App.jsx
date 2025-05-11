@@ -10,6 +10,7 @@ import Night from './components/Night';
 import { NightProvider } from './contexts/NightContext';
 import InnocentWin from './components/InnocentWin';
 import MafiaWin from './components/MafiaWin';
+import Results from './components/Results';
 
 function App() {
   const { view } = useNav();
@@ -39,6 +40,9 @@ function App() {
           </NightProvider>
           
         )
+
+      case "results":
+        return <Results />
 
       case "innocentWin":
         return <InnocentWin />

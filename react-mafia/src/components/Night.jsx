@@ -3,6 +3,8 @@ import "../css/night/night.css"
 import NightTable from "./common/NightTable";
 import NightNavButtons from "./common/NightNavButtons";
 import { useNightContext } from "../contexts/NightContext";
+import MafiaGame from "../GameAPI/mafiaGame";
+import { useNav } from "../contexts/NavContext";
 
 import ConsiActionFrame from "./ConsiActionFrame";
 import MafiaActionFrame from "./MafiaActionFrame";
@@ -14,7 +16,20 @@ import MedicActionFrame from "./MedicActionFrame";
 import AssassinActionFrame from "./AssassinActionFrame";
 
 function Night() {
-    const {nightFrame, actionFrameClass} = useNightContext();
+    const {updateView} = useNav();
+
+    const {
+        nightFrame, 
+        actionFrameClass,
+        killedPlayers,
+        silencedPlayers,
+        enforcedPlayers,
+        savedPlayers,
+        assassinatedPlayers,
+        consiHasChecked,
+        assassinHasShot
+        
+    } = useNightContext();
 
     function renderNightFrame() {
         switch(nightFrame) {
@@ -41,6 +56,19 @@ function Night() {
         }
     }
 
+    function prepareNightResults() {
+        MafiaGame.performNightRoutine(
+            killedPlayers, 
+            assassinatedPlayers, 
+            savedPlayers, 
+            enforcedPlayers, 
+            silencedPlayers,
+            consiHasChecked,
+            assassinHasShot
+        );
+        updateView("results");
+    }
+
     return (
         <>
             <RoleCheck/>
@@ -53,6 +81,7 @@ function Night() {
                     </div>
                     <NightTable />
                 </div>
+                <button className="continue-button" onClick={prepareNightResults}>CONTINUE</button>
             </div>
         </>
     )

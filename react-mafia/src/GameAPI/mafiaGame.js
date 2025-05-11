@@ -20,6 +20,11 @@ class MafiaGame {
         this.consiHasChecked = false;
         this.assassinHasShot = false;
 
+        this.lastNightRoutine = {
+            deaths: [],
+            silencedPlayer: null
+        };
+
     }
 
     swapDebugArray() {
@@ -68,7 +73,7 @@ class MafiaGame {
         return this.players.some(player => player.role === role);
     }
 
-    killPlayers(playerArray) {
+    _killPlayers(playerArray) {
         playerArray.forEach(player => player.killPlayer());
     }
 
@@ -103,6 +108,58 @@ class MafiaGame {
                 this.mafiaCount++;
             }
         })
+    }
+
+    performNightRoutine(
+        killedPlayers, 
+        assassinatedPlayers, 
+        savedPlayers, 
+        enforcedPlayers, 
+        silencedPlayers,
+        consiHasChecked,
+        assassinHasShot
+    ) {
+        let allKilledPlayers = killedPlayers.concat(assassinatedPlayers); // mafia kills + assassin kills
+        
+        // check for medic saves
+        if (savedPlayers.length > 0) {
+            const savedPlayer = savedPlayers[0];
+            this.previousMedicSave = savedPlayer.id;
+
+            // filter out the saved player
+            const killsAfterSave = allKilledPlayers.filter(player => player.id !== savedPlayer.id);
+            allKilledPlayers = killsAfterSave;
+        }
+
+        // kill the players
+        this._killPlayers(allKilledPlayers);
+
+        // check for enforced players
+        if (enforcedPlayers.length > 0) {
+            const enforcedPlayer = enforcedPlayers[0];
+            this.previousEnforcerBlock = enforcedPlayer.id;
+        }
+
+        // check for silenced players
+        let silencedPlayer = null;
+        if (silencedPlayers.length > 0) {
+            silencedPlayer = silencedPlayers[0];
+            this.previousBossSilence = silencedPlayer.id;
+        }
+
+        // check if the assassin has shot
+        if (assassinHasShot) {
+            this.assassinHasShot = true;
+        }
+
+        // check if the consi has checked
+        if (consiHasChecked) {
+            this.consiHasChecked = true;
+        }
+
+        this.lastNightRoutine.deaths = allKilledPlayers;
+        this.lastNightRoutine.silencedPlayer = silencedPlayer;
+
     }
 
     checkGameOver() {
