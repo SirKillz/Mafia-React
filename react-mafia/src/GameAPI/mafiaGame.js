@@ -42,9 +42,21 @@ class MafiaGame {
             "Innocent"
         ]
 
+        const testNames = [
+            "Nick",
+            "Ryan",
+            "Luke",
+            "Connor",
+            "Colin",
+            "Cole",
+            "Mike",
+            "Matt",
+            "Curt"
+        ]
+
         const debugArray = []
         for (let i = 0; i < 9; i++) {
-            const testPlayer = new Player(`Player ${i}`);
+            const testPlayer = new Player(`${testNames[i]}`);
             debugArray.push(testPlayer);
         }
 
@@ -179,6 +191,8 @@ class MafiaGame {
         if (consiHasChecked) {
             this.consiHasChecked = true;
         }
+
+        this.updateMafiaKillPower();
 
         this.lastNightRoutine.deaths = allKilledPlayers;
         this.lastNightRoutine.silencedPlayer = silencedPlayer;
