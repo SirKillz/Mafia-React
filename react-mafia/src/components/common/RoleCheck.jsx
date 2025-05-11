@@ -1,5 +1,6 @@
-import { useNightContext } from "../../contexts/NightContext";
 import "../../css/night/roleCheck.css"
+
+import { useNightContext } from "../../contexts/NightContext";
 
 function RoleCheck() {
     const {roleCheckOverlayClass, roleCheckResultClass, roleCheckResultText, resetRoleCheckOverlay} = useNightContext();
