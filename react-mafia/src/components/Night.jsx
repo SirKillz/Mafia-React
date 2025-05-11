@@ -77,7 +77,7 @@ function Night() {
         <>
             <RoleCheck/>
             <div className="night">
-                <h1 className="page-title">Night</h1>
+                <h1 className="page-title light">Night</h1>
                 <NightNavButtons />
                 <div className="night-main">
                     <div className={actionFrameClass}>

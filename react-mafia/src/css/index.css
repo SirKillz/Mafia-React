@@ -32,6 +32,10 @@
   font-size: 4em;
 }
 
+.light {
+  color: white;
+}
+
 .button-default {
   padding: 10px 20px;
   color: white;
