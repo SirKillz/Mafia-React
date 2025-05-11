@@ -9,6 +9,7 @@ function Daytime() {
     return (
         <div className="daytime">
             <h1 className="page-title">Daytime</h1>
+            <h2>Votes Needed to Kill: {MafiaGame.getVoteMajority()}</h2>
             <div className="table-div">
                 <DayTable />
             </div>

@@ -9,6 +9,7 @@ function RoleEntry() {
 
     function onClick() {
         MafiaGame.updateInitialMafiaCount();
+        MafiaGame.calculateCounts();
         updateView("daytime");
     }
 

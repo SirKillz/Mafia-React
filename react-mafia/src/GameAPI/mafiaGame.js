@@ -68,6 +68,7 @@ class MafiaGame {
 
         this.players = debugArray;
         this.updateInitialMafiaCount();
+        this.calculateCounts();
     }
 
     createPlayerObjs(rawPlayerArray) {
@@ -87,6 +88,15 @@ class MafiaGame {
             if (this.startingMafiaCount !== this.mafiaCount) {
                 this.mafiaKillPower--;
             }
+        }
+    }
+
+    getVoteMajority() {
+        if (this.aliveCount - 1 % 2 === 0) {
+            return ((this.aliveCount - 1) / 2) + 1;
+        }
+        else {
+            return Math.ceil(this.aliveCount / 2);
         }
     }
 
