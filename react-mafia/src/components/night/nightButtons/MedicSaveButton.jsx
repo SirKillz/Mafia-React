@@ -30,6 +30,9 @@ function MedicSaveButton({playerObj}) {
                     toast.warn(`Undo save on: ${savedPlayers[0].name} to select someone else to save!`)
                 }
             }
+            else {
+                toast.error("The medic has been Enforced and thus no actions can be performed!");
+            }
         }
         
         else {
