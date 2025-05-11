@@ -1,0 +1,19 @@
+.game-over {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.winning-team {
+    font-size: 5em;
+}
+
+.innocent-win {
+    background-color: var(--innocent);
+}
+
+.mafia-win {
+    background-color: var(--mafia-red);
+}

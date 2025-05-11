@@ -1,5 +1,9 @@
+import "../css/gameOver.css"
+
 function InnocentWin() {
-    return <h1>Innocent Win!</h1>
+    return <div className="game-over innocent-win">
+        <h1 className="winning-team">INNOCENT WIN!</h1>
+    </div>
 }
 
 export default InnocentWin
