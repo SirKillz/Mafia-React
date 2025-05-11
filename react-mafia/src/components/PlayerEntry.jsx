@@ -7,7 +7,7 @@ import MafiaGame from "../GameAPI/mafiaGame";
 import { useNav } from "../contexts/NavContext";
 
 function PlayerEntry() {
-  const [playerCount, setPlayerCount] = useState(0);
+  const [playerCount, setPlayerCount] = useState("");
   const [players, setPlayers]       = useState([]);
   const [submitClass, setSubmitClass] = useState("hidden");
   const { updateView } = useNav();
