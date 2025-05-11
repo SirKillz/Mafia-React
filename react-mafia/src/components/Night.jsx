@@ -8,6 +8,7 @@ import ConsiActionFrame from "./ConsiActionFrame";
 import MafiaActionFrame from "./MafiaActionFrame";
 import RoleCheck from "./common/RoleCheck";
 import EnforcerActionFrame from "./EnforcerActionFrame";
+import BossActionFrame from "./BossActionFrame";
 import SpyActionFrame from "./SpyActionFrame";
 import MedicActionFrame from "./MedicActionFrame";
 import AssassinActionFrame from "./AssassinActionFrame";
@@ -25,6 +26,9 @@ function Night() {
             
             case "Enforcer":
                 return <EnforcerActionFrame />
+
+            case "Mafia Boss":
+                return <BossActionFrame />
 
             case "Spy":
                 return <SpyActionFrame />

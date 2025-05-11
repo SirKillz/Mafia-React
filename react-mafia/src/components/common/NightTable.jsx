@@ -6,6 +6,7 @@ import { useNightContext } from "../../contexts/NightContext"
 import ConsiCheckButton from "./nightActions/ConsiCheckButton";
 import MafiaKillButton from "./nightActions/MafiaButton";
 import EnforcerBlockButton from "./nightActions/EnforcerBlockButton";
+import BossSilenceButton from "./nightActions/BossSilenceButton";
 import SpyCheckButton from "./nightActions/SpyCheckButton";
 import MedicSaveButton from "./nightActions/MedicSaveButton";
 import AssassinKillButton from "./nightActions/assassinKillButton";
@@ -29,7 +30,7 @@ function NightTable() {
                 buttonInfo.element = <MafiaKillButton playerObj={playerObj}/>;
                 break
             case "Mafia Boss":
-                buttonInfo.element = <button>Boss Silence</button>;
+                buttonInfo.element = <BossSilenceButton playerObj={playerObj}/>;
                 break
             case "Enforcer":
                 buttonInfo.element = <EnforcerBlockButton playerObj={playerObj}/>

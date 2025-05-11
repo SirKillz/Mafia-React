@@ -1,0 +1,21 @@
+.boss-action-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--enforcer);
+    padding: 20px;
+    border-radius: 10px;
+    gap: 20px;
+}
+
+.silenced-player-row {
+    display: flex;
+    gap: 10px;
+    border: 1px solid white;
+    padding: 5px;
+    width: 100%;
+}
+
+.remove-silence-button {
+    margin-left: auto;
+}
