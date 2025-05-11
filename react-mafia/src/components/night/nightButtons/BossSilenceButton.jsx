@@ -1,4 +1,4 @@
-import "../../../css/night/nightbuttons/enforcerBlockButton.css"
+import "../../../css/night/nightbuttons/bossSilenceButton.css"
 
 import { toast } from 'react-toastify'
 
@@ -36,7 +36,7 @@ function BossSilenceButton({playerObj}) {
 
 
     return (
-        <button className="enforcer-block-button" onClick={handleClick}>Silence</button>
+        <button className="boss-silence-button" onClick={handleClick}>Silence</button>
     )
 }
 
