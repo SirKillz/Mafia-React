@@ -30,3 +30,9 @@
     padding: 10px 20px;
     background-color: var(--daytime);
 }
+
+@media (max-width: 1024px) {
+    .page-title {
+        text-align: center;
+    }
+}
