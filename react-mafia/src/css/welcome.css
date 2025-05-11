@@ -2,11 +2,26 @@
     background-color: blue;
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-image: url("../../public/mafia-background.png");
     background-size: cover;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.header > img {
+    width: 20%;
+}
+
+.button-div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .enjoy-button{
@@ -19,3 +34,14 @@
     border-radius: 5px;
     text-align: center;
   }
+
+@media (max-width: 1024px) {
+    .welcome {
+        background-position: 70%; /* or any valid value like 'center top', 'left 20%', etc. */
+    }
+
+    .header > img {
+        width: 50%;
+    }
+}
+  
