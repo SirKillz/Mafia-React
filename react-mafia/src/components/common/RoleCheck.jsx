@@ -8,7 +8,7 @@ function RoleCheck() {
         <div className={roleCheckOverlayClass}>
                 <div className={roleCheckResultClass}>
                     <h1 className="role-check-result">{roleCheckResultText}</h1>
-                    <button onClick={resetRoleCheckOverlay}>Close</button>
+                    <button className="button-default" onClick={resetRoleCheckOverlay}>Close</button>
                 </div>
         </div>
     )
