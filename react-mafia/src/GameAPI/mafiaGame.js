@@ -149,6 +149,10 @@ class MafiaGame {
         })
     }
 
+    clearEnforcements() {
+        this.players.forEach(player => player.enableSpecialAction());
+    }
+
     performDayRoutine(votedPlayers) {
         this.killPlayers(votedPlayers);
         this.calculateCounts();
@@ -207,6 +211,9 @@ class MafiaGame {
 
         this.lastNightRoutine.deaths = allKilledPlayers;
         this.lastNightRoutine.silencedPlayer = silencedPlayer;
+
+        // reset enforcements for next night
+        this.clearEnforcements();
 
         this.nightCount++;
 
