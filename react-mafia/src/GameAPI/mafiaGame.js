@@ -9,8 +9,8 @@ class MafiaGame {
         this.innocentCount = 0;
         this.mafiaCount = 0;
         this.startingMafiaCount = 0;
-        this.dayCount = 1;
-        this.nightCount = 1;
+        this.dayCount = 0;
+        this.nightCount = 0;
 
         // rules
         this.mafiaKillPower = 2;
@@ -39,7 +39,7 @@ class MafiaGame {
             "Assassin",
             "Innocent",
             "Innocent",
-            "Innocent"
+            "Undercover Cop"
         ]
 
         const testNames = [
@@ -153,6 +153,7 @@ class MafiaGame {
         this.killPlayers(votedPlayers);
         this.calculateCounts();
         this.updateMafiaKillPower();
+        this.dayCount++;
     }
 
     performNightRoutine(
@@ -206,6 +207,8 @@ class MafiaGame {
 
         this.lastNightRoutine.deaths = allKilledPlayers;
         this.lastNightRoutine.silencedPlayer = silencedPlayer;
+
+        this.nightCount++;
 
     }
 

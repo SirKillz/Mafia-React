@@ -11,6 +11,7 @@ import MafiaActionFrame from "./night/nightFrames/MafiaActionFrame";
 import RoleCheck from "./common/RoleCheck";
 import EnforcerActionFrame from "./night/nightFrames/EnforcerActionFrame";
 import BossActionFrame from "./night/nightFrames/BossActionFrame";
+import UnderCoverCopActionFrame from "./night/nightFrames/UndercoverCopActionFrame";
 import SpyActionFrame from "./night/nightFrames/SpyActionFrame";
 import MedicActionFrame from "./night/nightFrames/MedicActionFrame";
 import AssassinActionFrame from "./night/nightFrames/AssassinActionFrame";
@@ -44,6 +45,9 @@ function Night() {
 
             case "Mafia Boss":
                 return <BossActionFrame />
+
+            case "Undercover Cop":
+                return <UnderCoverCopActionFrame />
 
             case "Spy":
                 return <SpyActionFrame />

@@ -53,6 +53,17 @@ function NightNavButtons()  {
             }
 
             {
+                (MafiaGame.roleIsPresent("Undercover Cop") && MafiaGame.dayCount === 1)
+                    ? <button 
+                        className="night-nav-button cop-nav-button" 
+                        onClick={() => updateActingRole("Undercover Cop")}
+                    >
+                        Undercover Cop
+                    </button>
+                    : <></>
+            }
+
+            {
                 MafiaGame.roleIsPresent("Spy") 
                     ? <button 
                         className="night-nav-button spy-nav-button" 

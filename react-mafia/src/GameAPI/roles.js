@@ -4,6 +4,7 @@ const allInnocentRoles = [
     "Medic", 
     "Assassin", 
     "Attorney",
+    "Undercover Cop"
 ]
 
 const allMafiaRoles = [
@@ -16,7 +17,9 @@ const allMafiaRoles = [
 const specialInnocentRoles = [
     "Spy", 
     "Medic", 
-    "Assassin"
+    "Assassin",
+    "Attorney",
+    "Undercover Cop"
 ]
 
 const specialMafiaRoles = [

@@ -1,0 +1,9 @@
+.cop-action-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--cop);
+    padding: 20px;
+    border-radius: 10px;
+    gap: 20px;
+}
