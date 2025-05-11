@@ -12,10 +12,10 @@ function Results() {
             switch(results.winningTeam) {
                 case "Innocent":
                     updateView("innocentWin");
-                    break
+                    return
                 case "Mafia":
                     updateView("mafiaWin");
-                    break
+                    return
             }
         }
         updateView("daytime");
