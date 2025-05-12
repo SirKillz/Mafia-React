@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { useNav } from './contexts/NavContext'
 import { ToastContainer } from 'react-toastify';
 
@@ -11,12 +13,24 @@ import { NightProvider } from './contexts/NightContext';
 import InnocentWin from './components/InnocentWin';
 import MafiaWin from './components/MafiaWin';
 import Results from './components/Results';
+import ContinueGame from './components/ContinueGame';
 
 function App() {
-  const { view } = useNav();
+  const { view, updateView } = useNav();
+
+  useEffect(() => {
+    if (localStorage.getItem("mafiaGameState")) {
+      updateView("continueGame");
+    }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function renderView() {
     switch(view) {
+      case "continueGame":
+        return <ContinueGame />
+
       case "welcome":
         return <WelcomePage />
 

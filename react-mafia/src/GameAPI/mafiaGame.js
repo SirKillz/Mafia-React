@@ -1,4 +1,5 @@
 import Player from "./player";
+import { saveGame } from "../operation";
 
 class MafiaGame {
     constructor() {
@@ -29,6 +30,27 @@ class MafiaGame {
             silencedPlayer: null
         };
 
+    }
+
+    toJSON() {
+        return {
+            players: this.players.map(player => player.toJSON()),
+            gamePhase: this.gamePhase,
+            aliveCount: this.aliveCount,
+            innocentCount: this.innocentCount,
+            mafiaCount: this.mafiaCount,
+            startingMafiaCount: this.startingMafiaCount,
+            dayCount: this.dayCount,
+            nightCount: this.nightCount,
+            mafiaKillPower: this.mafiaKillPower,
+            previousMedicSave: this.previousMedicSave,
+            previousEnforcerBlock: this.previousEnforcerBlock,
+            previousBossSilence: this.previousBossSilence,
+            consiHasChecked: this.consiHasChecked,
+            assassinHasShot: this.assassinHasShot,
+            attorneyHasDefended: this.attorneyHasDefended,
+            lastNightRoutine: this.lastNightRoutine
+        }
     }
 
     swapDebugArray() {
@@ -164,6 +186,9 @@ class MafiaGame {
 
         this.dayCount++;
         this.gamePhase = "night";
+
+        // save the mafia game instance
+        saveGame(this);
     }
 
     performNightRoutine(
@@ -224,6 +249,8 @@ class MafiaGame {
         this.nightCount++;
         this.gamePhase = "day";
 
+        // save the game instance
+        saveGame(this);
     }
 
     checkGameOver() {

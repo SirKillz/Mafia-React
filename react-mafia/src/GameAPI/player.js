@@ -1,22 +1,37 @@
 import roles from "./roles";
 
 class Player {
-    constructor(name) {
+    constructor(name, data = {}) {
         
         // received from initial inputs
         this.name = name;
-        this.id = crypto.randomUUID();
+        this.id = data.id ?? crypto.randomUUID();
 
 
         // defaults
-        this.role = "Innocent";
-        this.isAlive = true;
-        this.canPerformAction = true;
+        this.role = data.role ?? "Innocent";
+        this.isAlive = data.isAlive?? true;
+        this.canPerformAction = data.canPerformAction ?? true;
 
-        this.isInnocent = true;
-        this.isMafia = false;
-        this.isSpecialInnocent = false;
-        this.isSpecialMafia = false;
+        this.isInnocent = data.isInnocent ?? true;
+        this.isMafia = data.isMafia ?? false;
+        this.isSpecialInnocent = data.isSpecialInnocent ?? false;
+        this.isSpecialMafia = data.isSpecialMafia ?? false;
+    }
+
+    toJSON() {
+        return {
+            name: this.name,
+            id: this.id,
+            role: this.role,
+            isAlive: this.isAlive,
+            canPerformAction: this.canPerformAction,
+            isInnocent: this.isInnocent,
+            isMafia: this.isMafia,
+            isSpecialInnocent: this.isSpecialInnocent,
+            isSpecialMafia: this.isSpecialMafia
+        }
+
     }
 
     _roleStateReset() {
