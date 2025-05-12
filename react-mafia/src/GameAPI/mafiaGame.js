@@ -5,6 +5,7 @@ class MafiaGame {
         this.players = [];
 
         // status
+        this.gamePhase = "day";
         this.aliveCount = 0;
         this.innocentCount = 0;
         this.mafiaCount = 0;
@@ -162,6 +163,7 @@ class MafiaGame {
         if (attorneyDefenseUsed) this.attorneyHasDefended = true;
 
         this.dayCount++;
+        this.gamePhase = "night";
     }
 
     performNightRoutine(
@@ -220,6 +222,7 @@ class MafiaGame {
         this.clearEnforcements();
 
         this.nightCount++;
+        this.gamePhase = "day";
 
     }
 
@@ -252,6 +255,7 @@ class MafiaGame {
         const currentPlayerNames = this.players.map(player => player.name);
         this.createPlayerObjs(currentPlayerNames);
 
+        this.gamePhase = "day";
         this.aliveCount = 0;
         this.innocentCount = 0;
         this.mafiaCount = 0;
