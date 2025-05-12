@@ -8,7 +8,7 @@ import { useDayContext } from "../../contexts/DayContext";
 function AttorneyActionFrame() {
     const {attorneyDefenseUsed, updateAttoryneyDefenseUsed} = useDayContext();
     const [attorneyDefenseCount, setAttorneyDefenseCount] = useState(
-        MafiaGame.attorneyHasDefended ? 0 : 1
+        attorneyDefenseUsed ? 0 : 1
     );
     const [buttonText, setButtonText] = useState("Defend");
 
@@ -26,7 +26,7 @@ function AttorneyActionFrame() {
     }
 
     function getAttoryneyInstructionText() {
-        if (!MafiaGame.attorneyHasDefended) {
+        if (!attorneyDefenseUsed) {
             return "The Attorney can decide to defend the nominated player."
         }
         else {
@@ -39,7 +39,8 @@ function AttorneyActionFrame() {
             <h2>Attorney Actions:</h2>
             <h3>Attorney Defenses Remaining: {attorneyDefenseCount}</h3>
             <p>{getAttoryneyInstructionText()}</p>
-            {MafiaGame.attorneyHasDefended ? <></> : <button className="defend-button"onClick={handleDefense}>{buttonText}</button>}
+            {attorneyDefenseUsed ? <></> : <p>Only click after Attorney has used defenese!</p>}
+            {attorneyDefenseUsed ? <></> : <button className="defend-button"onClick={handleDefense}>{buttonText}</button>}
         </div>
     )
 }
