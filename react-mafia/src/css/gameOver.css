@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .winning-team {
@@ -17,3 +18,9 @@
 .mafia-win {
     background-color: var(--mafia-red);
 }
+
+@media (max-width: 1024px) {
+    .winning-team {
+        text-align: center;
+    }
+} 
