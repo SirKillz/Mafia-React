@@ -13,7 +13,7 @@ class MafiaGame {
         this.nightCount = 0;
 
         // rules
-        this.mafiaKillPower = 1; //defaults to one kill power can be overwritten during player entry
+        this.mafiaKillPower = 2; //defaults to one kill power can be overwritten during player entry
 
         // previously acted on players
         this.previousMedicSave = null;
@@ -245,6 +245,33 @@ class MafiaGame {
             isGameOver: false,
             winningTeam: null
         }
+    }
+
+    resetGame() {
+        // reset players to default state
+        const currentPlayerNames = this.players.map(player => player.name);
+        this.createPlayerObjs(currentPlayerNames);
+
+        this.aliveCount = 0;
+        this.innocentCount = 0;
+        this.mafiaCount = 0;
+        this.startingMafiaCount = 0;
+        this.dayCount = 0;
+        this.nightCount = 0;
+
+        this.mafiaKillPower = 2;
+
+        this.previousMedicSave = null;
+        this.previousEnforcerBlock = null;
+        this.previousBossSilence = null;
+        this.consiHasChecked = false;
+        this.assassinHasShot = false;
+        this.attorneyHasDefended = false;
+
+        this.lastNightRoutine = {
+            deaths: [],
+            silencedPlayer: null
+        };
     }
 }
 
