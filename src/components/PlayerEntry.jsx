@@ -89,7 +89,6 @@ function PlayerEntry() {
         {players.map((name, index) => (
           <input
             key={index}
-            ref={el => players.current[index] = el}
             className="input-med"
             type="text"
             placeholder={`Player ${index + 1} Name`}
@@ -97,14 +96,6 @@ function PlayerEntry() {
             onChange={(e) =>
               handleInputChange(index, e.target.value)
             }
-            onKeyDown={e => {
-              if (e.key === 'Enter') {
-                e.preventDefault();                            // don’t submit yet
-                const nextInput = players.current[index + 1];
-                if (nextInput) nextInput.focus();              // focus next if it exists
-              }
-            }}
-            enterKeyHint="next"
           />
         ))}
 
