@@ -21,6 +21,14 @@
     gap: 10px;
 }
 
+#player-count {
+    font-size: 16px;
+}
+
+#kill-power {
+    font-size: 16px;
+}
+
 .player-inputs {
     display: flex;
     flex-direction: column;
