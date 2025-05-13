@@ -257,6 +257,7 @@ class MafiaGame {
         // perform stat updates
         const statManager = new StatManager();
         statManager.recordSpyCheckStat(spyCheckedPlayer);
+        statManager.recordMedicSaveStat(killedPlayers, savedPlayers);
 
         // save the game instance
         saveGame(this);
