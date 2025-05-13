@@ -6,7 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import WelcomePage from './components/Welcome'
 import PlayerEntry from './components/PlayerEntry';
 import RoleEntry from './components/RoleEntry';
-import Daytime from './components/DayTime';
+import Daytime from './components/Daytime';
 import { DayProvider } from './contexts/DayContext';
 import Night from './components/Night';
 import { NightProvider } from './contexts/NightContext';
