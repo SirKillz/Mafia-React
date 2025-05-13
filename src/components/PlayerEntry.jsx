@@ -96,6 +96,7 @@ function PlayerEntry() {
             onChange={(e) =>
               handleInputChange(index, e.target.value)
             }
+            enterKeyHint="next"
           />
         ))}
 
