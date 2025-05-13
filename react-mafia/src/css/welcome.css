@@ -2,7 +2,7 @@
     background-color: blue;
     width: 100%;
     height: 100%;
-    background-image: url("../../public/mafia-background.png");
+    background-image: url("/mafia-background.png");
     background-size: cover;
 }
 
