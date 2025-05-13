@@ -30,6 +30,8 @@ class MafiaGame {
             silencedPlayer: null
         };
 
+        this.winningTeam = null;
+
     }
 
     toJSON() {
@@ -49,7 +51,8 @@ class MafiaGame {
             consiHasChecked: this.consiHasChecked,
             assassinHasShot: this.assassinHasShot,
             attorneyHasDefended: this.attorneyHasDefended,
-            lastNightRoutine: this.lastNightRoutine
+            lastNightRoutine: this.lastNightRoutine,
+            winningTeam: this.winningTeam
         }
     }
 
@@ -257,6 +260,9 @@ class MafiaGame {
         
         // check for innocent win
         if (this.mafiaCount === 0) {
+        
+            this.winningTeam = "Innocent";
+
             return {
                 isGameOver: true,
                 winningTeam: "Innocent"
@@ -265,6 +271,9 @@ class MafiaGame {
 
         // check for mafia win
         if (this.mafiaCount / this.aliveCount >= 0.5) {
+
+            this.winningTeam = "Mafia";
+
             return {
                 isGameOver: true,
                 winningTeam: "Mafia"
@@ -303,6 +312,8 @@ class MafiaGame {
             deaths: [],
             silencedPlayer: null
         };
+
+        this.winningTeam = null;
     }
 }
 
