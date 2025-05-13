@@ -258,6 +258,7 @@ class MafiaGame {
         const statManager = new StatManager();
         statManager.recordSpyCheckStat(spyCheckedPlayer);
         statManager.recordMedicSaveStat(killedPlayers, savedPlayers);
+        statManager.recordMedicSelfSaveStat(savedPlayers);
 
         // save the game instance
         saveGame(this);

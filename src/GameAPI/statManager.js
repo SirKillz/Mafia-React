@@ -36,6 +36,20 @@ class StatManager {
         }
 
     }
+
+    recordMedicSelfSaveStat(savedPlayers) {
+        if (savedPlayers.length > 0) {
+            const medicPlayer = MafiaGame.findPlayerByRole("Medic");
+            const savedPlayer = savedPlayers[0];
+
+            if (medicPlayer.id === savedPlayer.id) {
+                medicPlayer.medicSelfSavePercentage.push(true);
+            }
+            else {
+                medicPlayer.medicSelfSavePercentage.push(false);
+            }
+        }
+    }
 }
 
 export default StatManager
