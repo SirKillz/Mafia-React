@@ -1,0 +1,27 @@
+.continue {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--mafia-red);
+    color: white;
+    gap: 10px;
+    text-align: center;
+}
+
+.continue-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.yes-button {
+    padding: 10px 20px;
+    background-color: var(--spy);
+}
+
+.no-button {
+    padding: 10px 20px;
+    background-color: var(--button-primary);
+}

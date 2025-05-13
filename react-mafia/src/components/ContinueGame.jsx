@@ -1,3 +1,5 @@
+import "../css/continue.css"
+
 import { useNav } from "../contexts/NavContext"
 
 import { loadGame } from "../operation";
@@ -29,10 +31,13 @@ function ContinueGame() {
     }
 
     return (
-        <div>
-            <h1>Would you like to continue the in progress game?</h1>
-            <button onClick={() => handleClick("yes")}>Yes</button>
-            <button onClick={() => handleClick("no")}>No</button>
+        <div className="continue">
+            <h1>In Progress Game Detected!</h1>
+            <h2>Would you like to continue the in progress game?</h2>
+            <div className="continue-buttons">
+                <button className="yes-button" onClick={() => handleClick("yes")}>Yes</button>
+                <button className="no-button" onClick={() => handleClick("no")}>No</button>
+            </div>
         </div>
     )
 }
