@@ -21,3 +21,12 @@
     text-align: center;
     border-radius: 5px;
 }
+
+.player-row {
+    display: flex;
+    align-items: center;
+}
+
+.role-selector {
+    padding: 8px;
+}

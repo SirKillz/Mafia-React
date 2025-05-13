@@ -1,3 +1,5 @@
+import "../../css/formControls.css"
+
 import roles from "../../GameAPI/roles"
 import MafiaGame from "../../GameAPI/mafiaGame"
 

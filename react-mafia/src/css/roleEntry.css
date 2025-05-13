@@ -31,8 +31,78 @@
     background-color: var(--daytime);
 }
 
+.instructions {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.roles {
+    display: flex;
+    gap: 10px;
+}
+
+.role {
+    padding: 10px 20px;
+    color: white;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.strike-through {
+    text-decoration: line-through;
+}
+
+.consigliere {
+    background-color: var(--consigliere);
+}
+
+.mafia-boss {
+    background-color: var(--mafia-boss);
+}
+
+.enforcer {
+    background-color: var(--enforcer);
+}
+
+.mafia {
+    background-color: var(--mafia);
+}
+
+.undercover-cop {
+    background-color: var(--cop);
+}
+
+.spy {
+    background-color: var(--spy);
+}
+
+.medic {
+    background-color: var(--medic);
+}
+
+.assassin {
+    background-color: var(--assassin);
+}
+
+.attorney {
+    background-color: var(--attorney);
+}
+
+.guild-member {
+    background-color: var(--consigliere);
+}
+
 @media (max-width: 1024px) {
     .page-title {
         text-align: center;
+    }
+
+    .roles {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
