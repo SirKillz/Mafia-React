@@ -8,6 +8,8 @@ import { useNav } from "../contexts/NavContext";
 function WelcomePage() {
     const {updateView} = useNav();
 
+    const ENV = import.meta.env.VITE_ENV;
+
     function handleDebug() {
         MafiaGame.swapDebugArray();
         updateView("daytime");
@@ -20,7 +22,7 @@ function WelcomePage() {
                     <img src={mafiaImage} alt="" />
                 </div>
                 <div className="button-div">
-                    <button onClick={handleDebug}>Debug</button>
+                    {ENV === "dev" && <button onClick={handleDebug}>Debug</button>}
                     <NavButton text={"ENJOY"} className="enjoy-button" nextPage={"playerEntry"}/>
                 </div>
             </div>
