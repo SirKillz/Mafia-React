@@ -10,10 +10,8 @@ function ContinueGame() {
 
     function handleClick(action) {
         if (action === "yes") {
-            console.log("yes clicked");
             const didLoad = loadGame(MafiaGame);
             if (didLoad) {
-                console.log("Game did load");
                 if (MafiaGame.gamePhase === "day") {
                     updateView("daytime");
                     return

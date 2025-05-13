@@ -17,6 +17,13 @@ class Player {
         this.isMafia = data.isMafia ?? false;
         this.isSpecialInnocent = data.isSpecialInnocent ?? false;
         this.isSpecialMafia = data.isSpecialMafia ?? false;
+
+        // role specific stats
+        // each index in the array represents a night turn
+        this.spyMafiaHitPercentage = []; 
+        this.medicSavePercentage = [];
+        this.medicSelfSavePercentage = [];
+        this.assassinMafiaHitPercentage = [];
     }
 
     toJSON() {

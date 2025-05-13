@@ -31,7 +31,9 @@ const NightContext = createContext({
     updateSilencedPlayers: () => {},
     removeSilencedPlayer: () => {},
     consiHasChecked: null,
-    assassinHasShot: null
+    assassinHasShot: null,
+    spyCheckedPlayer: null,
+    updateSpyCheckedPlayer: () => {}
 })
 
 export function NightProvider({children}) {
@@ -57,6 +59,9 @@ export function NightProvider({children}) {
 
     // Mafia Boss Role Context
     const [silencedPlayers, setSilencedPlayers] = useState([]);
+
+    // Spy Role Context 
+    const [spyCheckedPlayer, setSpyCheckedPlayer] = useState(null);
 
     // Medic Role context
     const [savedPlayers, setSavedPlayers] = useState([]);
@@ -195,6 +200,10 @@ export function NightProvider({children}) {
         setSilencedPlayers(silencedPlayers.filter(player => player.id !== playerObj.id));
     }
 
+    function updateSpyCheckedPlayer(playerObj) {
+        setSpyCheckedPlayer(playerObj);
+    }
+
     return (
         <NightContext.Provider value={
             { 
@@ -226,7 +235,9 @@ export function NightProvider({children}) {
                 updateSilencedPlayers,
                 removeSilencedPlayer,
                 consiHasChecked,
-                assassinHasShot
+                assassinHasShot,
+                spyCheckedPlayer,
+                updateSpyCheckedPlayer
             }
         }>
             {children}

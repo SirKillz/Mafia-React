@@ -1,4 +1,5 @@
 import Player from "./player";
+import StatManager from "./statManager";
 import { saveGame } from "../operation";
 
 class MafiaGame {
@@ -201,7 +202,8 @@ class MafiaGame {
         enforcedPlayers, 
         silencedPlayers,
         consiHasChecked,
-        assassinHasShot
+        assassinHasShot,
+        spyCheckedPlayer,
     ) {
         let allKilledPlayers = killedPlayers.concat(assassinatedPlayers); // mafia kills + assassin kills
         
@@ -252,8 +254,13 @@ class MafiaGame {
         this.nightCount++;
         this.gamePhase = "day";
 
+        // perform stat updates
+        const statManager = new StatManager();
+        statManager.recordSpyCheckStat(spyCheckedPlayer);
+
         // save the game instance
         saveGame(this);
+        console.log(this);
     }
 
     checkGameOver() {

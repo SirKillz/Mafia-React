@@ -28,7 +28,8 @@ function Night() {
         savedPlayers,
         assassinatedPlayers,
         consiHasChecked,
-        assassinHasShot
+        assassinHasShot,
+        spyCheckedPlayer
         
     } = useNightContext();
 
@@ -68,7 +69,8 @@ function Night() {
             enforcedPlayers, 
             silencedPlayers,
             consiHasChecked,
-            assassinHasShot
+            assassinHasShot,
+            spyCheckedPlayer
         );
         updateView("results");
     }
