@@ -58,7 +58,7 @@ function PlayerEntry() {
     <div className="player-entry">
       <div className="count">
           <h1 className="page-title">Player Count:</h1>
-          <div>
+          <div className="rule-entry">
             <div className="input-row">
               <label htmlFor="player-count">Enter the number of players:</label>
               <input

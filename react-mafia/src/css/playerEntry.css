@@ -15,6 +15,12 @@
     gap: 10px;
 }
 
+.rule-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .player-inputs {
     display: flex;
     flex-direction: column;
