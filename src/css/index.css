@@ -39,7 +39,6 @@
 
 .button-default {
   padding: 10px 20px;
-  color: white;
   background-color: var(--button-primary);
 
 }

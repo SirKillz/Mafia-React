@@ -216,6 +216,9 @@ class MafiaGame {
             const killsAfterSave = allKilledPlayers.filter(player => player.id !== savedPlayer.id);
             allKilledPlayers = killsAfterSave;
         }
+        else {
+            this.previousMedicSave = null;
+        }
 
         // kill the players
         this.killPlayers(allKilledPlayers);
@@ -225,12 +228,18 @@ class MafiaGame {
             const enforcedPlayer = enforcedPlayers[0];
             this.previousEnforcerBlock = enforcedPlayer.id;
         }
+        else {
+            this.previousEnforcerBlock = null;
+        }
 
         // check for silenced players
         let silencedPlayer = null;
         if (silencedPlayers.length > 0) {
             silencedPlayer = silencedPlayers[0];
             this.previousBossSilence = silencedPlayer.id;
+        }
+        else {
+            this.previousBossSilence = null;
         }
 
         // check if the assassin has shot

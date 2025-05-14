@@ -33,7 +33,9 @@ const NightContext = createContext({
     consiHasChecked: null,
     assassinHasShot: null,
     spyCheckedPlayer: null,
-    updateSpyCheckedPlayer: () => {}
+    updateSpyCheckedPlayer: () => {},
+    previousNightActionsClass: null,
+    updatePreviousNightActionsClass: () => {}
 })
 
 export function NightProvider({children}) {
@@ -41,6 +43,7 @@ export function NightProvider({children}) {
     const [actingRole, setActingRole] = useState("");
     const [nightFrame, setNightFrame] = useState("");
     const [actionFrameClass, setActionFrameClass] = useState("hidden");
+    const [previousNightActionsClass, setPreviousNightActionsClass] = useState("hidden");
 
     // Consi and Spy Role Context:
     const [roleCheckOverlayClass, setRoleCheckOverlayClass] = useState("hidden");
@@ -204,6 +207,10 @@ export function NightProvider({children}) {
         setSpyCheckedPlayer(playerObj);
     }
 
+    function updatePreviousNightActionsClass(className) {
+        setPreviousNightActionsClass(className);
+    }
+
     return (
         <NightContext.Provider value={
             { 
@@ -237,7 +244,9 @@ export function NightProvider({children}) {
                 consiHasChecked,
                 assassinHasShot,
                 spyCheckedPlayer,
-                updateSpyCheckedPlayer
+                updateSpyCheckedPlayer,
+                previousNightActionsClass,
+                updatePreviousNightActionsClass
             }
         }>
             {children}

@@ -16,6 +16,8 @@ import SpyActionFrame from "./night/nightFrames/SpyActionFrame";
 import MedicActionFrame from "./night/nightFrames/MedicActionFrame";
 import AssassinActionFrame from "./night/nightFrames/AssassinActionFrame";
 
+import PreviousNightActions from "./PreviousNightActions";
+
 function Night() {
     const {updateView} = useNav();
 
@@ -29,7 +31,8 @@ function Night() {
         assassinatedPlayers,
         consiHasChecked,
         assassinHasShot,
-        spyCheckedPlayer
+        spyCheckedPlayer,
+        updatePreviousNightActionsClass
         
     } = useNightContext();
 
@@ -77,9 +80,16 @@ function Night() {
 
     return (
         <>
+            <PreviousNightActions />
             <RoleCheck/>
             <div className="night">
                 <h1 className="page-title light">Night</h1>
+                <button 
+                    className="button-default"
+                    onClick={() => updatePreviousNightActionsClass("pop-up")}
+                >
+                    Show Previous Night Actions
+                </button>
                 <NightNavButtons />
                 <div className="night-main">
                     <div className={actionFrameClass}>
