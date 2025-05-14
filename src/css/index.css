@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  overscroll-behavior-y: none;
+}
+
 #root {
   width: 100vw;
   height: 100vh;
