@@ -50,6 +50,20 @@ class StatManager {
             }
         }
     }
+
+    recordAssassinMafiaHitPercentage(assassinatedPlayers) {
+        if (assassinatedPlayers.length > 0) {
+            const assassinPlayer = MafiaGame.findPlayerByRole("Assassin");
+            const assassinatedPlayer = assassinatedPlayers[0];
+
+            if (assassinatedPlayer.isMafia) {
+                assassinPlayer.assassinMafiaHitPercentage.push(true);
+            }
+            else {
+                assassinPlayer.assassinMafiaHitPercentage.push(false);
+            }
+        }
+    }
 }
 
 export default StatManager

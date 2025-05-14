@@ -259,10 +259,10 @@ class MafiaGame {
         statManager.recordSpyCheckStat(spyCheckedPlayer);
         statManager.recordMedicSaveStat(killedPlayers, savedPlayers);
         statManager.recordMedicSelfSaveStat(savedPlayers);
+        statManager.recordAssassinMafiaHitPercentage(assassinatedPlayers);
 
         // save the game instance
         saveGame(this);
-        console.log(this);
     }
 
     checkGameOver() {
