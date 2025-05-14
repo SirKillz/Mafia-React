@@ -7,7 +7,6 @@ import { useNightContext } from "../contexts/NightContext";
 
 function PreviousNightActions() {
     const {previousNightActionsClass, updatePreviousNightActionsClass} = useNightContext();
-    console.log(MafiaGame.previousBossSilence, MafiaGame.previousEnforcerBlock, MafiaGame.previousMedicSave)
 
     return (
         <div className={previousNightActionsClass}>
