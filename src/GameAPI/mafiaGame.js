@@ -183,6 +183,13 @@ class MafiaGame {
 
     performDayRoutine(votedPlayers, attorneyDefenseUsed) {
         this.killPlayers(votedPlayers);
+
+        this.players.forEach(player => {
+            if (player.isAlive) {
+                player.incrementsDaysSurvived();
+            }
+        })
+
         this.calculateCounts();
         this.updateMafiaKillPower();
 
@@ -222,6 +229,13 @@ class MafiaGame {
 
         // kill the players
         this.killPlayers(allKilledPlayers);
+
+        // increment the night count for the alive players
+        this.players.forEach(player => {
+            if (player.isAlive) {
+                player.incrementNightsSurvived();
+            }
+        })
 
         // check for enforced players
         if (enforcedPlayers.length > 0) {

@@ -12,6 +12,8 @@ class Player {
         this.role = data.role ?? "Innocent";
         this.isAlive = data.isAlive?? true;
         this.canPerformAction = data.canPerformAction ?? true;
+        this.daysSurvived = data.daysSurvived ?? 0;
+        this.nightsSurvived = data.nightsSurvived ?? 0;
 
         this.isInnocent = data.isInnocent ?? true;
         this.isMafia = data.isMafia ?? false;
@@ -33,6 +35,8 @@ class Player {
             role: this.role,
             isAlive: this.isAlive,
             canPerformAction: this.canPerformAction,
+            daysSurvived: this.daysSurvived,
+            nightsSurvived: this.nightsSurvived,
             isInnocent: this.isInnocent,
             isMafia: this.isMafia,
             isSpecialInnocent: this.isSpecialInnocent,
@@ -81,6 +85,13 @@ class Player {
 
     disableSpecialAction() {
         this.canPerformAction = false;
+    }
+
+    incrementsDaysSurvived() {
+        this.daysSurvived++;
+    }
+    incrementNightsSurvived() {
+        this.nightsSurvived++;
     }
 }
 
