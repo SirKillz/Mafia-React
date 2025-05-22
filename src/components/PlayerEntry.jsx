@@ -32,6 +32,7 @@ function PlayerEntry() {
     const newKillPower = parseInt(e.target.value, 10) || 0
     setKillPower(newKillPower);
     MafiaGame.mafiaKillPower = newKillPower;
+    MafiaGame.initialMafiaKillPower = newKillPower;
   }
 
   // Update one player’s name at index:
