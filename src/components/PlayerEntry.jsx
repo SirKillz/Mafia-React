@@ -1,107 +1,155 @@
-import "../css/playerEntry.css"
-import "../css/formControls.css"
+import React, { useState, useEffect } from "react";
+import Select from "react-select";
 
-import { useState } from "react";
+import "../css/playerEntry.css";
+import "../css/formControls.css";
 
+import BACKENDAPI from "../GameAPI/backendAPI";
 import MafiaGame from "../GameAPI/mafiaGame";
 import { useNav } from "../contexts/NavContext";
 
 function PlayerEntry() {
-  const [playerCount, setPlayerCount] = useState("");
-  const [killPower, setKillPower] = useState("");
-  const [players, setPlayers]       = useState([]);
+  const [playerCount, setPlayerCount] = useState(0);
+  const [killPower, setKillPower]     = useState(1);
+  const [slots, setSlots]             = useState([]);
+  const [allPlayers, setAllPlayers]   = useState([]);
   const [submitClass, setSubmitClass] = useState("hidden");
-  const { updateView } = useNav();
+  const { updateView }                = useNav();
 
-  // Called when the # input changes:
+  // Load existing players on mount
+  useEffect(() => {
+    BACKENDAPI.getPlayers()
+      .then(setAllPlayers)
+      .catch((err) => console.error("Could not fetch players:", err));
+  }, []);
+
+  // Rebuild slots when count changes
   const handlePlayerCountChange = (e) => {
-    // 1) Parse the new count as a number:
-    const newCount = parseInt(e.target.value, 10) || 0;
-
-    // 2) Build an array of exactly newCount empty strings:
-    //    ['','',...]
-    const newPlayers = Array(newCount).fill("");
-
-    // 3) Update state in one batch:
-    setPlayerCount(newCount);
-    setPlayers(newPlayers);
-    setSubmitClass("button-default");     // show the button
+    const count = parseInt(e.target.value, 10) || 0;
+    setPlayerCount(count);
+    setSlots(
+      Array.from({ length: count }, () => ({
+        selectedOption: { value: "NEW", label: "NEW" },
+        customName: "",
+      }))
+    );
+    setSubmitClass("button-default");
   };
 
   const handleKillPowerChange = (e) => {
-    const newKillPower = parseInt(e.target.value, 10) || 0
-    setKillPower(newKillPower);
-    MafiaGame.mafiaKillPower = newKillPower;
-    MafiaGame.initialMafiaKillPower = newKillPower;
-  }
+    const kp = parseInt(e.target.value, 10) || 1;
+    setKillPower(kp);
+    MafiaGame.mafiaKillPower = kp;
+    MafiaGame.initialMafiaKillPower = kp;
+  };
 
-  // Update one player’s name at index:
-  function handleInputChange(index, newValue) {
-    const updated = players.slice();  // copy
-    updated[index] = newValue;        // set that slot
-    setPlayers(updated);
-  }
+  // Build options array: NEW first, then fetched players
+  const options = [
+    { value: "NEW", label: "NEW" },
+    ...allPlayers.map((p) => ({
+      value: String(p.player_id),
+      label: p.player_name,
+    })),
+  ];
 
-  function handleFormSubmit(e) {
+  // When user picks from dropdown
+  const handleSelectChange = (idx, option) => {
+    setSlots((prev) => {
+      const copy = [...prev];
+      copy[idx] = { selectedOption: option, customName: "" };
+      return copy;
+    });
+  };
+
+  // When user types a new player name
+  const handleCustomNameChange = (idx, value) => {
+    setSlots((prev) => {
+      const copy = [...prev];
+      copy[idx] = { ...copy[idx], customName: value };
+      return copy;
+    });
+  };
+
+  // Submission: ensure every slot has a name
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-    for (let i=0; i<players.length; i++) {
-        if (players[i] === "") {
-            alert(`Missing player name at Player ${i + 1}`);
-            return
+    try {
+      const names = slots.map((slot, i) => {
+        if (slot.selectedOption.value === "NEW") {
+          if (!slot.customName.trim()) {
+            throw new Error(`Missing name for new slot ${i + 1}`);
+          }
+          return slot.customName.trim();
         }
+        return slot.selectedOption.label;
+      });
+      MafiaGame.createPlayerObjs(names);
+      updateView("roleEntry");
+    } catch (err) {
+      alert(err.message);
     }
-
-    MafiaGame.createPlayerObjs(players);
-    updateView("roleEntry");
-  }
+  };
 
   return (
     <div className="player-entry">
       <div className="count">
-          <h1 className="page-title">Player Count:</h1>
-          <div className="rule-entry">
-            <div className="input-row">
-              <label htmlFor="player-count">Enter the number of players:</label>
-              <input
-                id="player-count"
-                className="input-small"
-                type="number"
-                min="0"
-                placeholder="# of Players"
-                onChange={handlePlayerCountChange}
-              />
-            </div>
-            <div className="input-row">
-              <label htmlFor="kill-power">Enter the Mafia's Kill Power:</label>
-              <input
-                id="kill-power"
-                className="input-small"
-                type="number"
-                min="1"
-                max="2"
-                placeholder="Mafia Kill Power"
-                onChange={handleKillPowerChange}
-              />
-            </div>
+        <h1 className="page-title">Player Setup</h1>
+        <div className="rule-entry">
+          <div className="input-row">
+            <label htmlFor="player-count"># of Players:</label>
+            <input
+              id="player-count"
+              type="number"
+              min="0"
+              className="input-small"
+              placeholder="0"
+              onChange={handlePlayerCountChange}
+            />
           </div>
+          <div className="input-row">
+            <label htmlFor="kill-power">Mafia Kill Power:</label>
+            <input
+              id="kill-power"
+              type="number"
+              min="1"
+              max="2"
+              className="input-small"
+              onChange={handleKillPowerChange}
+            />
+          </div>
+        </div>
       </div>
 
       <form className="player-inputs" onSubmit={handleFormSubmit}>
-        {players.map((name, index) => (
-          <input
-            key={index}
-            className="input-med"
-            type="text"
-            placeholder={`Player ${index + 1} Name`}
-            value={name}
-            onChange={(e) =>
-              handleInputChange(index, e.target.value)
-            }
-          />
+        {slots.map((slot, idx) => (
+          <div key={idx} className="player-select-row">
+            <label>Player {idx + 1}:</label>
+            <Select
+              className="select-med player-select"
+              classNamePrefix="react-select"
+              options={options}
+              value={slot.selectedOption}
+              onChange={(opt) => handleSelectChange(idx, opt)}
+              isSearchable
+              placeholder="Select or search..."
+            />
+            {slot.selectedOption.value === "NEW" && (
+              <input
+                type="text"
+                className="input-med"
+                placeholder="Enter new player name"
+                value={slot.customName}
+                onChange={(e) =>
+                  handleCustomNameChange(idx, e.target.value)
+                }
+              />
+            )}
+          </div>
         ))}
 
-
-        <button type="submit" className={submitClass}>Role Entry</button>
+        <button type="submit" className={submitClass}>
+          Role Entry
+        </button>
       </form>
     </div>
   );

@@ -4,6 +4,16 @@
     align-items: center;
 }
 
+.player-select-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.player-select {
+    width: 200px;
+}
+
 .input-row > input {
     margin-left: auto;
 }
@@ -30,4 +40,17 @@
 
 .role-selector {
     padding: 8px;
+}
+
+@media (max-width: 1024px) {
+    .player-select-row {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .input-med {
+        width: 200px;
+    }
 }
