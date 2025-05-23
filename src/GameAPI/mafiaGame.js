@@ -73,15 +73,15 @@ class MafiaGame {
         ]
 
         const testNames = [
-            "Nick",
-            "Ryan",
-            "Luke",
-            "Connor",
-            "Colin",
-            "Cole",
-            "Mike",
-            "Matt",
-            "Curt"
+            "Nick Killeen",
+            "Ryan O'Meara",
+            "Luke Hecht",
+            "Connor Burns",
+            "Colin Leschman",
+            "Cole Bateman",
+            "Mike Bovard",
+            "Matt Bovard",
+            "Curt Hasan"
         ]
 
         const debugArray = []
