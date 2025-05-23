@@ -121,31 +121,47 @@ function PlayerEntry() {
       </div>
 
       <form className="player-inputs" onSubmit={handleFormSubmit}>
-        {slots.map((slot, idx) => (
-          <div key={idx} className="player-select-row">
-            <label>Player {idx + 1}:</label>
-            <Select
-              className="select-med player-select"
-              classNamePrefix="react-select"
-              options={options}
-              value={slot.selectedOption}
-              onChange={(opt) => handleSelectChange(idx, opt)}
-              isSearchable
-              placeholder="Select or search..."
-            />
-            {slot.selectedOption.value === "NEW" && (
-              <input
-                type="text"
-                className="input-med"
-                placeholder="Enter new player name"
-                value={slot.customName}
-                onChange={(e) =>
-                  handleCustomNameChange(idx, e.target.value)
-                }
+        {slots.map((slot, idx) => {
+          // gather values selected in other slots
+          const otherValues = slots
+            .filter((_, i) => i !== idx)
+            .map((s) => s.selectedOption.value);
+
+          // filter options: allow NEW always, keep current selection, remove others
+          const availableOptions = options.filter(
+            (opt) =>
+              opt.value === slot.selectedOption.value ||
+              opt.value === "NEW" ||
+              !otherValues.includes(opt.value)
+          );
+
+          return (
+            <div key={idx} className="player-select-row">
+              <label>Player {idx + 1}:</label>
+              <Select
+                className="select-med player-select"
+                classNamePrefix="react-select"
+                options={availableOptions}
+                value={slot.selectedOption}
+                onChange={(opt) => handleSelectChange(idx, opt)}
+                isSearchable
+                placeholder="Select or search..."
               />
-            )}
-          </div>
-        ))}
+
+              {slot.selectedOption.value === "NEW" && (
+                <input
+                  type="text"
+                  className="input-med"
+                  placeholder="Enter new player name"
+                  value={slot.customName}
+                  onChange={(e) =>
+                    handleCustomNameChange(idx, e.target.value)
+                  }
+                />
+              )}
+            </div>
+          );
+        })}
 
         <button type="submit" className={submitClass}>
           Role Entry
