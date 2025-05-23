@@ -48,7 +48,7 @@ function PlayerEntry() {
     { value: "NEW", label: "NEW" },
     ...allPlayers.map((p) => ({
       value: String(p.player_id),
-      label: p.player_name,
+      label: p.name,
     })),
   ];
 
