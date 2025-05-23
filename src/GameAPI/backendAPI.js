@@ -36,6 +36,10 @@ class BACKENDAPI {
         const response = await this._makeGetRequest("/players");
         return response.json();
     }
+
+    async createResults(body) {
+      return await this._makePostRequest("/results/create", body);
+    }
 }
 
 export default new BACKENDAPI();
