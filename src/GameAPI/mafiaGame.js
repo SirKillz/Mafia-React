@@ -2,6 +2,8 @@ import Player from "./player";
 import StatManager from "./statManager";
 import { saveGame } from "../operation";
 
+import BACKENDAPI from "./backendAPI";
+
 class MafiaGame {
     constructor() {
         this.players = [];
@@ -296,6 +298,8 @@ class MafiaGame {
         if (this.mafiaCount === 0) {
         
             this.winningTeam = "Innocent";
+            console.log(this);
+            BACKENDAPI.createResults(this);
 
             return {
                 isGameOver: true,
@@ -307,6 +311,8 @@ class MafiaGame {
         if (this.mafiaCount / this.aliveCount >= 0.5) {
 
             this.winningTeam = "Mafia";
+            console.log(this);
+            BACKENDAPI.createResults(this);
 
             return {
                 isGameOver: true,
