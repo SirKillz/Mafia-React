@@ -6,8 +6,10 @@ import MafiaGame from "../../../GameAPI/mafiaGame";
 function EnforcerActionFrame() {
     const {enforcedPlayers, removeEnforcedPlayer} = useNightContext();
 
-    function handleClick(playerObj) {
+    function handleRemoveEnforceClick(playerObj) {
         removeEnforcedPlayer(playerObj);
+        const enforcedPlayer = MafiaGame.findPlayerByID(playerObj.id);
+        enforcedPlayer.enableSpecialAction();
     }
 
     function getEnforcerInstructionText() {
@@ -30,7 +32,7 @@ function EnforcerActionFrame() {
                 return (
                     <div className="enforced-player-row" key={player.id}>
                         <p>{player.name}</p>
-                        <button className="remove-enforce-button" onClick={() => handleClick(player)}>Remove Enforcement</button>
+                        <button className="remove-enforce-button" onClick={() => handleRemoveEnforceClick(player)}>Remove Enforcement</button>
                     </div>
                 )
             })}
