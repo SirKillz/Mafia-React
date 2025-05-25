@@ -1,19 +1,19 @@
 import { useEffect } from 'react';
 
-import { useNav } from './contexts/NavContext'
+import { useNav } from '../contexts/NavContext'
 import { ToastContainer } from 'react-toastify';
 
-import WelcomePage from './components/Welcome'
-import PlayerEntry from './components/PlayerEntry';
-import RoleEntry from './components/RoleEntry';
-import Daytime from './components/Daytime';
-import { DayProvider } from './contexts/DayContext';
-import Night from './components/Night';
-import { NightProvider } from './contexts/NightContext';
-import InnocentWin from './components/InnocentWin';
-import MafiaWin from './components/MafiaWin';
-import Results from './components/Results';
-import ContinueGame from './components/ContinueGame';
+import WelcomePage from '../components/Welcome'
+import PlayerEntry from '../components/PlayerEntry';
+import RoleEntry from '../components/RoleEntry';
+import Daytime from '../components/Daytime';
+import { DayProvider } from '../contexts/DayContext';
+import Night from '../components/Night';
+import { NightProvider } from '../contexts/NightContext';
+import InnocentWin from '../components/InnocentWin';
+import MafiaWin from '../components/MafiaWin';
+import Results from '../components/Results';
+import ContinueGame from '../components/ContinueGame';
 
 function App() {
   const { view, updateView } = useNav();

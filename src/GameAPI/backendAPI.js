@@ -40,6 +40,11 @@ class BACKENDAPI {
     async createResults(body) {
       return await this._makePostRequest("/results/create", body);
     }
+
+    async getPlayerStats(playerId) {
+      const response = await this._makeGetRequest(`/player/stats/${playerId}`)
+      return response.json()
+    }
 }
 
 export default new BACKENDAPI();
