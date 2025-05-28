@@ -8,3 +8,21 @@
     padding: 20px;
     background-color: var(--mafia-red);
 }
+
+.ind-player-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    border: 1px solid white;
+    padding: 10px;
+}
+
+.average-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    border: 1px solid white;
+    padding: 10px;
+}

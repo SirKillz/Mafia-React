@@ -50,6 +50,11 @@ class BACKENDAPI {
       const response = await this._makeGetRequest("/games/stats")
       return response.json()
     }
+
+    async getAveragePlayerStats() {
+      const response = await this._makeGetRequest("/players/stats/average")
+      return response.json()
+    }
 }
 
 export default new BACKENDAPI();
