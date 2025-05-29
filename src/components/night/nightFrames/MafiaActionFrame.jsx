@@ -19,7 +19,7 @@ function MafiaActionFrame() {
                 return (
                     <div className="killed-player-row" key={player.id}>
                         <p>{player.name}</p>
-                        <button className="remove-kill-button" onClick={() => handleClick(player)}>Remove Kill</button>
+                        <button className="remove-kill-button button-default" onClick={() => handleClick(player)}>Remove Kill</button>
                     </div>
                 )
             })}
