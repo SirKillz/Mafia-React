@@ -31,7 +31,7 @@ function BossActionFrame() {
                 return (
                     <div className="silenced-player-row" key={player.id}>
                         <p>{player.name}</p>
-                        <button className="remove-silence-button" onClick={() => handleClick(player)}>Remove Silence</button>
+                        <button className="remove-silence-button button-default" onClick={() => handleClick(player)}>Remove Silence</button>
                     </div>
                 )
             })}
