@@ -40,7 +40,7 @@ function AssassinActionFrame() {
                 return (
                     <div className="assassinated-player-row" key={player.id}>
                         <p>{player.name}</p>
-                        <button className="remove-assassination-button" onClick={() => handleClick(player)}>Remove Kill</button>
+                        <button className="remove-assassination-button button-default" onClick={() => handleClick(player)}>Remove Kill</button>
                     </div>
                 )
             })}
