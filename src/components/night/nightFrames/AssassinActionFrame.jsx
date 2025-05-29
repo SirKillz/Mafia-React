@@ -4,10 +4,11 @@ import { useNightContext } from "../../../contexts/NightContext"
 import MafiaGame from "../../../GameAPI/mafiaGame";
 
 function AssassinActionFrame() {
-    const {assassinatedPlayers, removeAsssassinatedPlayer} = useNightContext();
+    const {assassinatedPlayers, removeAsssassinatedPlayer, updateAssassinHasShot} = useNightContext();
 
     function handleClick(playerObj) {
         removeAsssassinatedPlayer(playerObj);
+        updateAssassinHasShot(false);
     }
 
     function getAssassinInstructionText() {
