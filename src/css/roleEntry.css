@@ -69,11 +69,15 @@
 }
 
 .mafia {
-    background-color: var(--mafia);
+    background-color: var(--mafia-red);
 }
 
 .undercover-cop {
     background-color: var(--cop);
+}
+
+.innocent {
+    background-color: var(--innocent);
 }
 
 .spy {

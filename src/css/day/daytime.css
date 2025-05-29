@@ -23,6 +23,7 @@
 @media (max-width: 1024px) {
     .table-div {
         display: flex;
+        align-items: center;
         flex-direction: column;
         gap: 20px;
     }
