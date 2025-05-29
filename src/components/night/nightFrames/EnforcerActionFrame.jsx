@@ -32,7 +32,7 @@ function EnforcerActionFrame() {
                 return (
                     <div className="enforced-player-row" key={player.id}>
                         <p>{player.name}</p>
-                        <button className="remove-enforce-button" onClick={() => handleRemoveEnforceClick(player)}>Remove Enforcement</button>
+                        <button className="remove-enforce-button button-default" onClick={() => handleRemoveEnforceClick(player)}>Remove Enforcement</button>
                     </div>
                 )
             })}
