@@ -37,7 +37,7 @@ function MedicActionFrame() {
                 return (
                     <div className="saved-player-row" key={player.id}>
                         <p>{player.name}</p>
-                        <button className="remove-save-button" onClick={() => handleClick(player)}>Remove Save</button>
+                        <button className="remove-save-button button-default" onClick={() => handleClick(player)}>Remove Save</button>
                     </div>
                 )
             })}
