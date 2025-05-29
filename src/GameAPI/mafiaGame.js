@@ -298,7 +298,7 @@ class MafiaGame {
         if (this.mafiaCount === 0) {
         
             this.winningTeam = "Innocent";
-            console.log(this);
+            if (import.meta.env.VITE_ENV === "dev") console.log(this);
             BACKENDAPI.createResults(this);
 
             return {
@@ -311,7 +311,7 @@ class MafiaGame {
         if (this.mafiaCount / this.aliveCount >= 0.5) {
 
             this.winningTeam = "Mafia";
-            console.log(this);
+            if (import.meta.env.VITE_ENV === "dev") console.log(this);
             BACKENDAPI.createResults(this);
 
             return {
