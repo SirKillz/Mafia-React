@@ -97,7 +97,7 @@
 }
 
 .guild-member {
-    background-color: var(--consigliere);
+    background-color: var(--guild-member);
 }
 
 @media (max-width: 1024px) {
