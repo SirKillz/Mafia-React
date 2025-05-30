@@ -86,6 +86,25 @@ function PlayerStats() {
           </table>
         </div>
 
+        <div className="special-role-counts">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Spy Games Played</th>
+                        <th>Medic Games Played</th>
+                        <th>Assassin Games Played</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{playerStats.spy_games_played}</td>
+                        <td>{playerStats.medic_games_played}</td>
+                        <td>{playerStats.assassin_games_played}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
         <div className="role-stats">
           <table>
             <thead>
