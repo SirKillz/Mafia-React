@@ -16,3 +16,9 @@
     padding: 10px 20px;
     color: white;
 }
+
+@media (max-width: 1024px) {
+    .attorney-action-frame {
+        align-self: center;
+    }
+}
