@@ -1,0 +1,44 @@
+.pop-up {
+    /* make it cover the entire viewport */
+    position: fixed;
+    inset: 0;              /* equivalent to top:0; right:0; bottom:0; left:0; */
+    width: 100%;
+    height: 100%;
+    /* darken the background a bit */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* center children */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* make sure it’s on top */
+    z-index: 9999;
+  }
+  
+  .mod-actions {
+    /* keep your existing layout */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* white box with some padding and rounded corners */
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    /* optional: constrain width so it doesn’t get too huge */
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;  /* if content is tall */
+    align-items: center;
+  }
+
+  .revive-button {
+    padding: 10px 20px;
+    color: white;
+    background-color: var(--spy);
+  }
+
+  .remove-revive {
+    padding: 10px 20px;
+    color: white;
+    background-color: var(--mafia-red);
+  }
+  

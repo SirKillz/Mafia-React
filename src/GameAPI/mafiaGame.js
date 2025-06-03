@@ -185,6 +185,10 @@ class MafiaGame {
         this.players.forEach(player => player.enableSpecialAction());
     }
 
+    revivePlayers(revivedPlayersArray) {
+        revivedPlayersArray.forEach(player => player.isAlive = true);
+    }
+
     performDayRoutine(votedPlayers, attorneyDefenseUsed) {
         this.killPlayers(votedPlayers);
 
