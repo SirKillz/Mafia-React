@@ -5,7 +5,7 @@ class BACKENDAPI {
 
     async _makeGetRequest(endpoint, params = {}) {
   
-        const url = `${this.baseUrl}/v1/mafia${endpoint}?${new URLSearchParams(params)}`;
+        const url = `${this.baseUrl}/api/v1${endpoint}?${new URLSearchParams(params)}`;
         const headers = {
           "Content-Type": "application/json",
           "X-API-KEY": import.meta.env.VITE_API_KEY,
@@ -19,7 +19,7 @@ class BACKENDAPI {
 
     async _makePostRequest(endpoint, body = {}) {
 
-    const url = `${this.baseUrl}/v1/mafia${endpoint}`;
+    const url = `${this.baseUrl}/api/v1${endpoint}`;
     const headers = {
         "Content-Type": "application/json",
         "X-API-KEY": import.meta.env.VITE_API_KEY
@@ -38,21 +38,21 @@ class BACKENDAPI {
     }
 
     async createResults(body) {
-      return await this._makePostRequest("/results/create", body);
+      return await this._makePostRequest("/games", body);
     }
 
     async getPlayerStats(playerId) {
-      const response = await this._makeGetRequest(`/player/stats/${playerId}`)
+      const response = await this._makeGetRequest(`/stats/players/${playerId}`)
       return response.json()
     }
 
     async getGameStats() {
-      const response = await this._makeGetRequest("/games/stats")
+      const response = await this._makeGetRequest("/stats/teams")
       return response.json()
     }
 
     async getAveragePlayerStats() {
-      const response = await this._makeGetRequest("/players/stats/average")
+      const response = await this._makeGetRequest("/stats/players/average")
       return response.json()
     }
 }
